@@ -7,8 +7,8 @@ public class Equipo implements Serializable {
 
     private Long id;
     private String nombre;  // nombre de equipo
-    private String ciudad;
-    private String pais;
+    /*private String ciudad;
+    private String pais;*/
     private String categoria; // Sera si es A o B, primera o segunda division
 
     private ArrayList<Jugador> jugadores; //  Para la relacion entre clase Jugador
@@ -17,12 +17,12 @@ public class Equipo implements Serializable {
     public Equipo() {
     }
 
-    public Equipo(String nombre, String ciudad, String pais, String categoria) {
+    /*public Equipo(String nombre, String ciudad, String pais, String categoria) {
         this.nombre = nombre;
         this.ciudad = ciudad;
         this.pais = pais;
         this.categoria = categoria;
-    }
+    }*/
 
     // Setter y Getter
     public Long getId() {
@@ -41,7 +41,7 @@ public class Equipo implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getCiudad() {
+    /*public String getCiudad() {
         return ciudad;
     }
 
@@ -55,7 +55,7 @@ public class Equipo implements Serializable {
 
     public void setPais(String pais) {
         this.pais = pais;
-    }
+    }*/
 
     public String getCategoria() {
         return categoria;

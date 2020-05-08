@@ -25,7 +25,7 @@ dependencies {
     }
 
     // 3 - dependencias necesarias para poder trabajar con JPA - HIBERNATE
-//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    //implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
     //4 - dependencia para mysql
 //    runtimeOnly 'mysql:mysql-connector-java'

@@ -3,28 +3,28 @@ package app.entidades;
 import java.time.LocalDate;
 
 abstract class Persona {
+
     private String nombre;
-    private String apellido;
+    private String apellidos;
     private String dni;
     private Character genero; // Sexo del jugador 'M' o 'H'
     private LocalDate fNac;  // Fecha de nacimiento
     private String email;
     private String telefono;
-    private String nacionalidad;
+    //private String nacionalidad;
 
     // Contructores
     public Persona() {
     }
 
-    public Persona(String nombre, String apellido, String dni, Character genero, LocalDate fNac, String email, String telefono, String nacionalidad) {
+    public Persona(String nombre, String apellidos, String dni, Character genero, LocalDate fNac, String email, String telefono) {
         this.nombre = nombre;
-        this.apellido = apellido;
+        this.apellidos = apellidos;
         this.dni = dni;
         this.genero = genero;
         this.fNac = fNac;
         this.email = email;
         this.telefono = telefono;
-        this.nacionalidad = nacionalidad;
     }
 
     // Setter y Getter
@@ -36,12 +36,12 @@ abstract class Persona {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getApellidos() {
+        return apellidos;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public String getDni() {
@@ -84,11 +84,11 @@ abstract class Persona {
         this.telefono = telefono;
     }
 
-    public String getNacionalidad() {
+   /* public String getNacionalidad() {
         return nacionalidad;
     }
 
     public void setNacionalidad(String nacionalidad) {
         this.nacionalidad = nacionalidad;
-    }
+    }*/
 }

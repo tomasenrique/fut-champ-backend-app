@@ -13,8 +13,7 @@ public class Partido implements Serializable {
     private LocalTime inicio; // Hora de inicio
     private LocalTime fin; // Hora final
     private String estadio; // Nombre de estadio
-    private String ciudad;
-    private String pais;
+
 
 
     // Constructores
