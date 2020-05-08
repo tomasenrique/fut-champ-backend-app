@@ -1,0 +1,20 @@
+ AQUI SE ANOTA TODO LO RELACIONADO CON EL CODIGO DEL PROGRAMA
+
+
+Coordinador/es: Aqui entraria el personal encargado de llevar el recuento de puntos, partidos, horarios...
+Otros: Aquí se engloba a todos los demás usuarios (jugadores, entrenadores, utilleros, aficionados)...
+
+Jugador: nombre, apellidos, dni, fecha de nacimiento, Equipo.
+Equipo: nombre, lista de jugadores.
+Liga: nombre, lista de equipos, jornadas.
+Jornada: fecha, Lista de partidos.
+Partido: equipo A, equipo B, hora inicio, hora fin, lugar.
+
+
+Hay que tener en cuenta que un jugador pertenece durante una temporada a un equipo de forma exclusiva y que un
+equipo ha de cumplir con los requisitos mínimos para poder inscribirse en el torneo (24 jugadores, mayores de 18 años).
+
+Los partidos se generarán de forma aleatoria en un horario aleatorio cada sábado y domingo de la semana.
+
+Los coordinadores son los que tienen acceso a las actas para poder subir los datos de cada encuentro a la base de
+datos y así la app se actualice.

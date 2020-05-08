@@ -1,5 +1,9 @@
 plugins {
     id 'java'
+
+    // 1 - libreria para las dependencias del numero 2
+    id 'org.springframework.boot' version '2.2.5.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 }
 
 group 'org.example'
@@ -13,4 +17,16 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    // 2 Dependencias para usar spring
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+
+    // 3 - dependencias necesarias para poder trabajar con JPA - HIBERNATE
+//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    //4 - dependencia para mysql
+//    runtimeOnly 'mysql:mysql-connector-java'
 }
