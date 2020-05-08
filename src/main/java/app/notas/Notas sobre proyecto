@@ -9,6 +9,7 @@ Equipo: nombre, lista de jugadores.
 Liga: nombre, lista de equipos, jornadas.
 Jornada: fecha, Lista de partidos.
 Partido: equipo A, equipo B, hora inicio, hora fin, lugar.
+Coordinador:
 
 
 Hay que tener en cuenta que un jugador pertenece durante una temporada a un equipo de forma exclusiva y que un
@@ -18,3 +19,36 @@ Los partidos se generarán de forma aleatoria en un horario aleatorio cada sába
 
 Los coordinadores son los que tienen acceso a las actas para poder subir los datos de cada encuentro a la base de
 datos y así la app se actualice.
+
+========================================================================================================================
+========================================================================================================================
+PARA USAR EL ENUM
+    El segundo parametro es la abrebiatura
+	Posicion posicion = Enum.valueOf(Posicion.class, "MINI");  // con este metodo, nos devolvera lo que se entre por la consola
+
+		System.out.println("Talla: " + laTalla);
+		System.out.println("Abreviatura: " + laTalla.getDameAbreviatura());
+
+		String aaa = laTalla.getDameAbreviatura();
+
+		System.out.println(aaa);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

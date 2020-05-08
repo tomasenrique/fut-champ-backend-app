@@ -1,28 +1,42 @@
 package app.entidades;
 
+import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
+@Entity
 public class Equipo implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Size(max = 100)
     private String nombre;  // nombre de equipo
-    /*private String ciudad;
-    private String pais;*/
+
+    @Size(max = 100)
     private String categoria; // Sera si es A o B, primera o segunda division
 
-    private ArrayList<Jugador> jugadores; //  Para la relacion entre clase Jugador
+    // Relacion 1:N hacia Persona - Jugador
+    @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Persona.class)
+    private List<Persona> jugadores = new ArrayList<>();
+
+    // Relacion N:1 hacia Liga
+    @ManyToOne(targetEntity = Liga.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_liga") // campo o columna a crear en la tabla
+    private Liga liga;
 
     // Contructores
     public Equipo() {
     }
 
-    /*public Equipo(String nombre, String ciudad, String pais, String categoria) {
+    public Equipo(String nombre, String categoria, Liga liga) {
         this.nombre = nombre;
-        this.ciudad = ciudad;
-        this.pais = pais;
         this.categoria = categoria;
-    }*/
+        this.liga = liga;
+    }
 
     // Setter y Getter
     public Long getId() {
@@ -41,22 +55,6 @@ public class Equipo implements Serializable {
         this.nombre = nombre;
     }
 
-    /*public String getCiudad() {
-        return ciudad;
-    }
-
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
-
-    public String getPais() {
-        return pais;
-    }
-
-    public void setPais(String pais) {
-        this.pais = pais;
-    }*/
-
     public String getCategoria() {
         return categoria;
     }
@@ -64,4 +62,14 @@ public class Equipo implements Serializable {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+
+    public Liga getLiga() {
+        return liga;
+    }
+
+    public void setLiga(Liga liga) {
+        this.liga = liga;
+    }
+
+
 }
