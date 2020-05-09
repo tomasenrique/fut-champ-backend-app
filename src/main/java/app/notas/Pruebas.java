@@ -1,11 +1,5 @@
 package app.notas;
 
-import app.entidades.Equipo;
-import app.entidades.Persona;
-import app.entidades.Posicion;
-
-import java.time.LocalDate;
-
 public class Pruebas {
     public static void main(String[] args) {
 //        Posicion posicion  = Posicion.DFC;

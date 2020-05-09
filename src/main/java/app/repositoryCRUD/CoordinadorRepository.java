@@ -1,9 +1,9 @@
 package app.repositoryCRUD;
 
-import app.entidades.Liga;
+import app.entidades.Coordinador;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface LigaRepository extends CrudRepository<Liga, Long> {
+public interface CoordinadorRepository  extends CrudRepository<Coordinador, Long> {
 }

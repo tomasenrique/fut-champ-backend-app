@@ -1,4 +1,4 @@
-package app.entidades;
+package app.enumeradores;
 
 public enum Posicion {
     POR("Portero"),
