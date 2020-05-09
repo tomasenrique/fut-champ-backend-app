@@ -19,13 +19,10 @@ public class Equipo implements Serializable {
     @Size(max = 100)
     private String categoria; // Sera si es A o B, primera o segunda division
 
-    // Relacion 1:N hacia Jugador
-    @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Jugador.class)
-    private List<Jugador> jugadores = new ArrayList<>();
+    // Relacion 1:N hacia Persona Jugador o Coordinador
+    @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Persona.class)
+    private List<Persona> integrantes_equipo = new ArrayList<>();
 
-    // Relacion 1:1 hacia Coordinador
-    @OneToOne(mappedBy = "equipo", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Coordinador.class)
-    private Coordinador coodinador;
 
     // Relacion N:1 hacia Liga
     @ManyToOne(targetEntity = Liga.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -41,6 +38,7 @@ public class Equipo implements Serializable {
         this.categoria = categoria;
         this.liga = liga;
     }
+
 
     // Setter y Getter
     public Long getId() {
@@ -75,11 +73,4 @@ public class Equipo implements Serializable {
         this.liga = liga;
     }
 
-    public Coordinador getCoodinador() {
-        return coodinador;
-    }
-
-    public void setCoodinador(Coordinador coodinador) {
-        this.coodinador = coodinador;
-    }
 }

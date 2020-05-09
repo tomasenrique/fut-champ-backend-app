@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LigaRepository extends CrudRepository<Liga, Long> {
+
+    Liga findLigaByNombre(String nombre);  // Busca una liga por su nombre
 }

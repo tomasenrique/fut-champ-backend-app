@@ -5,9 +5,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Entity
-@DiscriminatorColumn(name = "ocupacion") // Indica un campo en la tabla que identifica el tipo registro hecho
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE) // Indica que las clases que heredan estaran en usa sola tabla
-abstract class Persona {
+public class Persona {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,15 +31,21 @@ abstract class Persona {
     @Size(max = 20)
     private String telefono;
 
-    // Campos para Jugador
+    @Size(max = 100)
+    private String ocupacion; // campo para saber si es jugador o coordinador
+
     @Size(max = 100)
     private String posicion; // Lugar que ocupa en el campo el jugador
 
+    @Column(nullable = true) // obliga al campo a ser nulo por defecto
     private int dorsal; // Numero de camiseta del jugador
 
-    // Campo para Coordinador
     @Size(max = 100)
-    private String cargo;
+    private String cargo; // Campo para coordinador que indica cual es su funcion como tal
+
+    @ManyToOne(targetEntity = Equipo.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_equipo") // campo o columna a crear en la tabla
+    private Equipo equipo; // Nombre de equipo, sera el id de identificacion
 
 
     // Contructores
@@ -49,7 +53,7 @@ abstract class Persona {
     }
 
     // Constructor de Jugador
-    public Persona(@Size(max = 100) String nombre, @Size(max = 100) String apellidos, @Size(max = 20) String dni, Character genero, LocalDate fNac, @Size(max = 40) String email, @Size(max = 20) String telefono, @Size(max = 100) String posicion, int dorsal) {
+    public Persona(@Size(max = 100) String nombre, @Size(max = 100) String apellidos, @Size(max = 20) String dni, Character genero, LocalDate fNac, @Size(max = 40) String email, @Size(max = 20) String telefono, @Size(max = 100) String ocupacion, @Size(max = 100) String posicion, int dorsal, Equipo equipo) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
@@ -57,12 +61,14 @@ abstract class Persona {
         this.fNac = fNac;
         this.email = email;
         this.telefono = telefono;
+        this.ocupacion = ocupacion;
         this.posicion = posicion;
         this.dorsal = dorsal;
+        this.equipo = equipo;
     }
 
     // Constructor de Coordinador
-    public Persona(@Size(max = 100) String nombre, @Size(max = 100) String apellidos, @Size(max = 20) String dni, Character genero, LocalDate fNac, @Size(max = 40) String email, @Size(max = 20) String telefono, @Size(max = 100) String cargo) {
+    public Persona(@Size(max = 100) String nombre, @Size(max = 100) String apellidos, @Size(max = 20) String dni, Character genero, LocalDate fNac, @Size(max = 40) String email, @Size(max = 20) String telefono, @Size(max = 100) String ocupacion, @Size(max = 100) String cargo, Equipo equipo) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
@@ -70,9 +76,10 @@ abstract class Persona {
         this.fNac = fNac;
         this.email = email;
         this.telefono = telefono;
+        this.ocupacion = ocupacion;
         this.cargo = cargo;
+        this.equipo = equipo;
     }
-
 
     // Setter y Getter
     public Long getId() {
@@ -163,4 +170,19 @@ abstract class Persona {
         this.cargo = cargo;
     }
 
+    public String getOcupacion() {
+        return ocupacion;
+    }
+
+    public void setOcupacion(String ocupacion) {
+        this.ocupacion = ocupacion;
+    }
+
+    public Equipo getEquipo() {
+        return equipo;
+    }
+
+    public void setEquipo(Equipo equipo) {
+        this.equipo = equipo;
+    }
 }
