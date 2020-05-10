@@ -19,13 +19,16 @@ public class Equipo implements Serializable {
     @Size(max = 100)
     private String categoria; // Sera si es A o B, primera o segunda division
 
+    private String logo; // url de la imagen de logo del equipo
+
     // Relacion 1:N hacia Persona Jugador o Coordinador
     @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Persona.class)
     private List<Persona> integrantes_equipo = new ArrayList<>();
 
 
     // Relacion N:1 hacia Liga
-    @ManyToOne(targetEntity = Liga.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    // Al poner CascadeType.DETACH indicamos que solo se borre el equipo y no asociado a el.
+    @ManyToOne(targetEntity = Liga.class, fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @JoinColumn(name = "id_liga") // campo o columna a crear en la tabla
     private Liga liga;
 
@@ -33,9 +36,10 @@ public class Equipo implements Serializable {
     public Equipo() {
     }
 
-    public Equipo(String nombre, String categoria, Liga liga) {
+    public Equipo(@Size(max = 100) String nombre, @Size(max = 100) String categoria, String logo, Liga liga) {
         this.nombre = nombre;
         this.categoria = categoria;
+        this.logo = logo;
         this.liga = liga;
     }
 
@@ -73,4 +77,11 @@ public class Equipo implements Serializable {
         this.liga = liga;
     }
 
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
 }

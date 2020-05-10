@@ -1,7 +1,6 @@
 package app.controladores;
 
 import app.entidades.Equipo;
-import app.entidades.Liga;
 import app.entidades.Persona;
 import app.enumeradores.Abreviaturas;
 import app.repositoryCRUD.EquipoRepository;
@@ -19,7 +18,7 @@ import java.util.Optional;
 @RequestMapping(path = "/api/futchamp/jugador")
 public class JugadorController {
 
-    final String OCUPACION = Abreviaturas.JUG.getAbreviaturas();
+    private final String OCUPACION = Abreviaturas.JUG.getAbreviaturas();
 
     @Autowired
     private PersonaRepository personaRepositoryJugador;
@@ -30,9 +29,14 @@ public class JugadorController {
     @PostMapping("/agregar")
     public ResponseEntity<Persona> agregarJugador(@RequestBody Persona jugador) {
         Equipo equipoBuscado = obtenerDatosEquipoRepository.findEquipoByNombre(jugador.getEquipo().getNombre()); // Busca el equipo por su nombre
-        jugador.setEquipo(equipoBuscado); // asigna el id de equipoBuscado
-        Persona addJugador = personaRepositoryJugador.save(jugador);
-        return ResponseEntity.status(HttpStatus.CREATED).body(addJugador);
+
+        if (equipoBuscado != null) {
+            jugador.setEquipo(equipoBuscado); // asigna el id de equipoBuscado
+            Persona addJugador = personaRepositoryJugador.save(jugador);
+            return ResponseEntity.status(HttpStatus.CREATED).body(addJugador);
+        }else {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No se puedo agregar el jugador.");
+        }
     }
 
     // =================================================================================================================
@@ -83,6 +87,7 @@ public class JugadorController {
             actualizarPersona.setfNac(jugador.getfNac());
             actualizarPersona.setEmail(jugador.getEmail());
             actualizarPersona.setTelefono(jugador.getTelefono());
+            actualizarPersona.setImagen(jugador.getImagen()); // actualiza url de imagen
             actualizarPersona.setOcupacion(jugador.getOcupacion());
             actualizarPersona.setPosicion(jugador.getPosicion());
             actualizarPersona.setDorsal(jugador.getDorsal());
@@ -92,18 +97,6 @@ public class JugadorController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No existe el usuario a actualizar.");
         }
     }
-
-//    @DeleteMapping("/eliminar/{idjugador}")
-////    public ResponseEntity<?> eliminarJugador(@PathVariable Long idjugador) {
-////        Optional<Persona> buscarJugadorEliminar = personaRepositoryJugador.findById(idjugador);
-////        if (buscarJugadorEliminar.isPresent()) {
-////            Persona eliminarJugador = buscarJugadorEliminar.get();
-////            personaRepositoryJugador.deleteById(eliminarJugador.getId());
-////            return ResponseEntity.status(HttpStatus.OK).body(eliminarJugador);
-////        } else {
-////            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No existe el jugador a eliminar");
-////        }
-////    }
 
     @DeleteMapping("/eliminar/{idjugador}")
     public ResponseEntity<?> eliminarJugador(@PathVariable Long idjugador) {

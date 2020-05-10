@@ -16,6 +16,8 @@ public class Liga implements Serializable {
     @Size(max = 150)
     private String nombre;
 
+    private String imagen; // Imagen url de la liga.
+
     // Relacion 1:N hacia Equipo
     @OneToMany(mappedBy = "liga", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Equipo.class)
     private List<Equipo> equipos = new ArrayList<>();
@@ -28,8 +30,9 @@ public class Liga implements Serializable {
     public Liga() {
     }
 
-    public Liga(String nombre) {
+    public Liga(@Size(max = 150) String nombre, String imagen) {
         this.nombre = nombre;
+        this.imagen = imagen;
     }
 
     // Setter y Getter
@@ -49,4 +52,11 @@ public class Liga implements Serializable {
         this.nombre = nombre;
     }
 
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
 }

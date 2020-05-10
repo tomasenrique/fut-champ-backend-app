@@ -31,6 +31,8 @@ public class Persona {
     @Size(max = 20)
     private String telefono;
 
+    private String imagen; // url de ubicacion de la imagen
+
     @Size(max = 100)
     private String ocupacion; // campo para saber si es jugador o coordinador
 
@@ -54,7 +56,7 @@ public class Persona {
     }
 
     // Constructor de Jugador
-    public Persona(@Size(max = 100) String nombre, @Size(max = 100) String apellidos, @Size(max = 20) String dni, Character genero, LocalDate fNac, @Size(max = 40) String email, @Size(max = 20) String telefono, @Size(max = 100) String ocupacion, @Size(max = 100) String posicion, int dorsal, Equipo equipo) {
+    public Persona(@Size(max = 100) String nombre, @Size(max = 100) String apellidos, @Size(max = 20) String dni, Character genero, LocalDate fNac, @Size(max = 40) String email, @Size(max = 20) String telefono, String imagen, @Size(max = 100) String ocupacion, @Size(max = 100) String posicion, int dorsal, Equipo equipo) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
@@ -62,6 +64,7 @@ public class Persona {
         this.fNac = fNac;
         this.email = email;
         this.telefono = telefono;
+        this.imagen = imagen;
         this.ocupacion = ocupacion;
         this.posicion = posicion;
         this.dorsal = dorsal;
@@ -69,7 +72,7 @@ public class Persona {
     }
 
     // Constructor de Coordinador
-    public Persona(@Size(max = 100) String nombre, @Size(max = 100) String apellidos, @Size(max = 20) String dni, Character genero, LocalDate fNac, @Size(max = 40) String email, @Size(max = 20) String telefono, @Size(max = 100) String ocupacion, @Size(max = 100) String cargo, Equipo equipo) {
+    public Persona(@Size(max = 100) String nombre, @Size(max = 100) String apellidos, @Size(max = 20) String dni, Character genero, LocalDate fNac, @Size(max = 40) String email, @Size(max = 20) String telefono, String imagen, @Size(max = 100) String ocupacion, @Size(max = 100) String cargo, Equipo equipo) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
@@ -77,6 +80,7 @@ public class Persona {
         this.fNac = fNac;
         this.email = email;
         this.telefono = telefono;
+        this.imagen = imagen;
         this.ocupacion = ocupacion;
         this.cargo = cargo;
         this.equipo = equipo;
@@ -185,5 +189,13 @@ public class Persona {
 
     public void setEquipo(Equipo equipo) {
         this.equipo = equipo;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 }

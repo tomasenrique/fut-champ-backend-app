@@ -22,6 +22,22 @@ datos y así la app se actualice.
 
 ========================================================================================================================
 ========================================================================================================================
+COSAS TERMINADAS
+
+- controlador liga
+- controlador jugador
+- controlador equipo
+- controlador
+- controlador
+- controlador
+
+
+
+
+
+
+========================================================================================================================
+========================================================================================================================
 PARA USAR EL ENUM
     El segundo parametro es la abrebiatura
 	Posicion posicion = Enum.valueOf(Posicion.class, "MINI");  // con este metodo, nos devolvera lo que se entre por la consola

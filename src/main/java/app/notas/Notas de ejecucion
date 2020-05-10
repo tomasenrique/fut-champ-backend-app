@@ -94,6 +94,42 @@ DELETE http://localhost:8080/api/futchamp/liga/eliminar/2
 
 ########################################################################################################################
 # EQUIPO
+POST http://localhost:8080/api/futchamp/equipo/agregar
+Content-Type: application/json
+
+{
+  "nombre": "Los pececitos",
+  "categoria": "medianos",
+  "liga": {"nombre": "proyecto los jugadores"}
+}
+
+###
+
+GET http://localhost:8080/api/futchamp/equipo/mostrar
+
+###
+
+GET http://localhost:8080/api/futchamp/equipo/mostrar/categoria/medianos
+
+###
+
+GET http://localhost:8080/api/futchamp/equipo/mostrar/nombre/los pececitos
+
+###
+
+PUT http://localhost:8080/api/futchamp/equipo/actualizar
+Content-Type: application/json
+
+{
+  "id": 4,
+  "nombre": "Los pececitos grandes",
+  "categoria": "grandes"
+}
+
+###
+
+DELETE http://localhost:8080/api/futchamp/equipo/eliminar/4
+
 
 
 ########################################################################################################################
