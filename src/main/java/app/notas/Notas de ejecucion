@@ -12,20 +12,48 @@ Content-Type: application/json
   "email": "tomasenriquea@hotmail.com",
   "telefono": "640622522",
   "ocupacion": "jugador",
-  "posicion": "DFC",
+  "posicion": "EI",
   "dorsal": 10,
-  "equipo": {"nombre": "los gatos" }
+  "equipo": {
+    "nombre": "los gatos"
+  }
 }
-
-<> 2020-05-09T053021.201.json
 
 ###
 
 GET http://localhost:8080/api/futchamp/jugador/mostrar
 
-<> 2020-05-09T053026.200.json
+###
+
+GET http://localhost:8080/api/futchamp/jugador/mostrar/idEquipo/1
 
 ###
+
+GET http://localhost:8080/api/futchamp/jugador/mostrar/dni/x9893913a
+
+###
+
+PUT http://localhost:8080/api/futchamp/jugador/actualizar
+Content-Type: application/json
+
+{
+  "id": 5,
+  "nombre": "enrique",
+  "apellidos": "torres",
+  "dni": "x9893913a",
+  "genero": "H",
+  "fNac": "1979-11-30",
+  "email": "tomasenrique@live.com",
+  "telefono": "123456789",
+  "ocupacion": "jugador",
+  "posicion": "LI",
+  "dorsal": 35
+}
+
+###
+
+DELETE http://localhost:8080/api/futchamp/jugador/eliminar/5
+
 
 ########################################################################################################################
 # LIGA
@@ -37,13 +65,13 @@ Content-Type: application/json
   "nombre": "Los pescaditos"
 }
 
-<> 2020-05-09T053033.201.json
-
 ###
 
 GET http://localhost:8080/api/futchamp/liga/mostrar
 
-<> 2020-05-09T053050.200.json
+###
+
+GET http://localhost:8080/api/futchamp/liga/mostrar/nombre/Los pescaditos
 
 ###
 
@@ -55,19 +83,9 @@ Content-Type: application/json
   "nombre": "Proyecto los pescaditos"
 }
 
-<> 2020-05-09T053116.200.json
-
 ###
 
-DELETE http://localhost:8080/api/futchamp/liga/eliminar
-Content-Type: application/json
-
-{
-  "nombre": "Proyecto los pescaditos"
-}
-
-<> 2020-05-09T053138.200.json
-
+DELETE http://localhost:8080/api/futchamp/liga/eliminar/2
 
 
 ########################################################################################################################

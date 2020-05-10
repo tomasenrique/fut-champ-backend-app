@@ -43,7 +43,8 @@ public class Persona {
     @Size(max = 100)
     private String cargo; // Campo para coordinador que indica cual es su funcion como tal
 
-    @ManyToOne(targetEntity = Equipo.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    // Al poner CascadeType.DETACH indicamos que solo se borre la persona y no asociado a ella.
+    @ManyToOne(targetEntity = Equipo.class, fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @JoinColumn(name = "id_equipo") // campo o columna a crear en la tabla
     private Equipo equipo; // Nombre de equipo, sera el id de identificacion
 

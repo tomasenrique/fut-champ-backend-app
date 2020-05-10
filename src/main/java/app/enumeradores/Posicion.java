@@ -47,7 +47,7 @@ public enum Posicion {
      * Obtiene el valor de la posicion abreviada por medio de una cadena de texto abreviada, ejm: "POR" => Portero
      * EJM
      * Persona persona = new Persona();
-     * persona.setPosicion(Posicion.getPosicion("POR"));
+     * persona.getPosicion(Posicion.getPosicion("POR"));
      *
      * @param posicion Sera la cadena de texto de la abreviada de la posicion del juggador
      * @return Devuelve una cadena de texto que sera el valor de la abreviatura.
