@@ -41,7 +41,7 @@ public class JugadorController {
 
     // =================================================================================================================
 
-    // Muestra una lista completa de todos los jugadores de todos lo equipos
+    // Muestra una lista completa de todos los jugadores de todos los equipos
     @GetMapping("/mostrar")
     public Iterable<Persona> mostrarJugadores() {
         try {
@@ -79,20 +79,20 @@ public class JugadorController {
     public Persona actualizarJugador(@RequestBody Persona jugador) {
         Optional<Persona> personaBuscar = personaRepositoryJugador.findById(jugador.getId());
         if (personaBuscar.isPresent()) {
-            Persona actualizarPersona = personaBuscar.get();
-            actualizarPersona.setNombre(jugador.getNombre());
-            actualizarPersona.setApellidos(jugador.getApellidos());
-            actualizarPersona.setDni(jugador.getDni());
-            actualizarPersona.setGenero(jugador.getGenero());
-            actualizarPersona.setfNac(jugador.getfNac());
-            actualizarPersona.setEmail(jugador.getEmail());
-            actualizarPersona.setTelefono(jugador.getTelefono());
-            actualizarPersona.setImagen(jugador.getImagen()); // actualiza url de imagen
-            actualizarPersona.setOcupacion(jugador.getOcupacion());
-            actualizarPersona.setPosicion(jugador.getPosicion());
-            actualizarPersona.setDorsal(jugador.getDorsal());
-            personaRepositoryJugador.save(actualizarPersona); // Actualiza datos
-            return actualizarPersona;
+            Persona actualizarJugador = personaBuscar.get();
+            actualizarJugador.setNombre(jugador.getNombre());
+            actualizarJugador.setApellidos(jugador.getApellidos());
+            actualizarJugador.setDni(jugador.getDni());
+            actualizarJugador.setGenero(jugador.getGenero());
+            actualizarJugador.setfNac(jugador.getfNac());
+            actualizarJugador.setEmail(jugador.getEmail());
+            actualizarJugador.setTelefono(jugador.getTelefono());
+            actualizarJugador.setImagen(jugador.getImagen()); // actualiza url de imagen
+            actualizarJugador.setOcupacion(jugador.getOcupacion());
+            actualizarJugador.setPosicion(jugador.getPosicion());
+            actualizarJugador.setDorsal(jugador.getDorsal());
+            personaRepositoryJugador.save(actualizarJugador); // Actualiza datos
+            return actualizarJugador;
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No existe el usuario a actualizar.");
         }

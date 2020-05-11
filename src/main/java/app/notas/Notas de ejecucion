@@ -11,9 +11,10 @@ Content-Type: application/json
   "fNac": "1980-01-07",
   "email": "tomasenriquea@hotmail.com",
   "telefono": "640622522",
+  "imagen": "www.urlIgamenJugador.com",
   "ocupacion": "jugador",
   "posicion": "EI",
-  "dorsal": 10,
+  "dorsal": "10",
   "equipo": {
     "nombre": "los gatos"
   }
@@ -45,9 +46,10 @@ Content-Type: application/json
   "fNac": "1979-11-30",
   "email": "tomasenrique@live.com",
   "telefono": "123456789",
+  "imagen": "www.urlImagem.com",
   "ocupacion": "jugador",
   "posicion": "LI",
-  "dorsal": 35
+  "dorsal": "35"
 }
 
 ###
@@ -62,7 +64,8 @@ POST http://localhost:8080/api/futchamp/liga/agregar
 Content-Type: application/json
 
 {
-  "nombre": "Los pescaditos"
+  "nombre": "Los pescaditos",
+  "imagen": "www.urlIgamenLiga.com"
 }
 
 ###
@@ -80,7 +83,8 @@ Content-Type: application/json
 
 {
   "id": 2,
-  "nombre": "Proyecto los pescaditos"
+  "nombre": "Proyecto los pescaditos",
+  "imagen": "www.urlIgamenLiga.com"
 }
 
 ###
@@ -91,6 +95,71 @@ DELETE http://localhost:8080/api/futchamp/liga/eliminar/2
 ########################################################################################################################
 # COORDINADOR
 
+POST http://localhost:8080/api/futchamp/coordinador/agregar
+Content-Type: application/json
+
+{
+  "nombre": "Luis alberto",
+  "apellidos": "arriaga calderon",
+  "dni": "A01478269K",
+  "genero": "H",
+  "fNac": "1969-02-17",
+  "email": "luisAlberto@hotmail.com",
+  "telefono": "666258106",
+  "imagen": "www.urlIgamenCoordinador.com",
+  "ocupacion": "coordinador",
+  "cargo": "jefe",
+  "equipo": {
+    "nombre": "los gatos"
+  }
+}
+
+###
+
+GET http://localhost:8080/api/futchamp/coordinador/mostrar
+
+###
+
+GET http://localhost:8080/api/futchamp/coordinador/mostrar/idEquipo/2
+
+###
+
+GET http://localhost:8080/api/futchamp/coordinador/mostrar/dni/12345678B
+
+###
+
+PUT http://localhost:8080/api/futchamp/coordinador/actualizar
+Content-Type: application/json
+
+{
+  "id": 1,
+  "nombre": "Luis alberto",
+  "apellidos": "arriaga calderon",
+  "dni": "A01478269K",
+  "genero": "H",
+  "fNac": "1969-02-17",
+  "email": "luisAlberto@hotmail.com",
+  "telefono": "666258106",
+  "imagen": "www.urlIgamenCoordinador.com",
+  "ocupacion": "coordinador",
+  "cargo": "jefe",
+  "equipo": {
+    "nombre": "los gatos"
+  }
+}
+
+###
+
+### Este enlace actualiza la clave del coordinador
+PUT http://localhost:8080/api/futchamp/coordinador/actualizar/clave?idCoordinador=15&nuevaClave=x9893913a
+
+
+
+
+###
+
+
+
 
 ########################################################################################################################
 # EQUIPO
@@ -100,7 +169,10 @@ Content-Type: application/json
 {
   "nombre": "Los pececitos",
   "categoria": "medianos",
-  "liga": {"nombre": "proyecto los jugadores"}
+  "logo": "www.urlImagemLogo.com",
+  "liga": {
+    "nombre": "proyecto los jugadores"
+  }
 }
 
 ###
@@ -123,7 +195,8 @@ Content-Type: application/json
 {
   "id": 4,
   "nombre": "Los pececitos grandes",
-  "categoria": "grandes"
+  "categoria": "grandes",
+  "logo": "www.urlImagemLogo.com"
 }
 
 ###

@@ -39,16 +39,21 @@ public class Persona {
     @Size(max = 100)
     private String posicion; // Lugar que ocupa en el campo el jugador
 
-    @Column(nullable = true) // obliga al campo a ser nulo por defecto
-    private int dorsal; // Numero de camiseta del jugador
+    @Size(max = 10)
+    private String dorsal; // Numero de camiseta del jugador
 
     @Size(max = 100)
     private String cargo; // Campo para coordinador que indica cual es su funcion como tal
 
+    // Relacion N:1 hacia Equipo
     // Al poner CascadeType.DETACH indicamos que solo se borre la persona y no asociado a ella.
     @ManyToOne(targetEntity = Equipo.class, fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @JoinColumn(name = "id_equipo") // campo o columna a crear en la tabla
     private Equipo equipo; // Nombre de equipo, sera el id de identificacion
+
+    // Relacion 1:1 hacia Acceso
+    @OneToOne(mappedBy = "persona", cascade = CascadeType.ALL, targetEntity = Acceso.class)
+    private Acceso acceso;
 
 
     // Contructores
@@ -56,7 +61,7 @@ public class Persona {
     }
 
     // Constructor de Jugador
-    public Persona(@Size(max = 100) String nombre, @Size(max = 100) String apellidos, @Size(max = 20) String dni, Character genero, LocalDate fNac, @Size(max = 40) String email, @Size(max = 20) String telefono, String imagen, @Size(max = 100) String ocupacion, @Size(max = 100) String posicion, int dorsal, Equipo equipo) {
+    public Persona(@Size(max = 100) String nombre, @Size(max = 100) String apellidos, @Size(max = 20) String dni, Character genero, LocalDate fNac, @Size(max = 40) String email, @Size(max = 20) String telefono, String imagen, @Size(max = 100) String ocupacion, @Size(max = 100) String posicion, String dorsal, Equipo equipo) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
@@ -159,11 +164,11 @@ public class Persona {
         this.posicion = posicion;
     }
 
-    public int getDorsal() {
+    public String getDorsal() {
         return dorsal;
     }
 
-    public void setDorsal(int dorsal) {
+    public void setDorsal(String dorsal) {
         this.dorsal = dorsal;
     }
 
@@ -198,4 +203,5 @@ public class Persona {
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }
+
 }

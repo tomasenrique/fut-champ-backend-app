@@ -13,5 +13,4 @@ public interface EquipoRepository extends CrudRepository<Equipo, Long> {
 
     Equipo findEquipoByNombre(String nombre); // Obtiene un equipo por su nombre
 
-
 }
