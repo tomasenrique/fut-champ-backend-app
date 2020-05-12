@@ -21,28 +21,27 @@ public class Equipo implements Serializable {
 
     private String logo; // url de la imagen de logo del equipo
 
-    // Relacion 1:N hacia Persona Jugador o Coordinador
+    // Relacion 1:N hacia Persona Jugador o Coordinador , OJO ==>> CascadeType.ALL indica que si se puede borrar un equipo
     @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Persona.class)
     private List<Persona> integrantes_equipo = new ArrayList<>();
 
 
     // Relacion N:1 hacia Liga
     // Al poner CascadeType.DETACH indicamos que solo se borre el equipo y no asociado a el.
-    @ManyToOne(targetEntity = Liga.class, fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
-    @JoinColumn(name = "id_liga") // campo o columna a crear en la tabla
-    private Liga liga;
+    @ManyToOne(targetEntity = Partido.class, fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+    @JoinColumn(name = "id_partido") // campo o columna a crear en la tabla
+    private Partido partido;
 
     // Contructores
     public Equipo() {
     }
 
-    public Equipo(@Size(max = 100) String nombre, @Size(max = 100) String categoria, String logo, Liga liga) {
+    public Equipo(@Size(max = 100) String nombre, @Size(max = 100) String categoria, String logo, Partido partido) {
         this.nombre = nombre;
         this.categoria = categoria;
         this.logo = logo;
-        this.liga = liga;
+        this.partido = partido;
     }
-
 
     // Setter y Getter
     public Long getId() {
@@ -69,12 +68,12 @@ public class Equipo implements Serializable {
         this.categoria = categoria;
     }
 
-    public Liga getLiga() {
-        return liga;
+    public Partido getPartido() {
+        return partido;
     }
 
-    public void setLiga(Liga liga) {
-        this.liga = liga;
+    public void setPartido(Partido partido) {
+        this.partido = partido;
     }
 
     public String getLogo() {

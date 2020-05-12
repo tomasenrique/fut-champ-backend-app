@@ -1,3 +1,129 @@
+
+### OJO ==>> SEGUIR EL ORDEN PARA POBRAR LA APLICACION
+
+########################################################################################################################
+
+# LIGA
+
+POST http://localhost:8080/api/futchamp/liga/agregar
+Content-Type: application/json
+
+{
+  "nombre": "Los pescaditos",
+  "imagen": "www.urlIgamenLiga.com"
+}
+
+###
+
+GET http://localhost:8080/api/futchamp/liga/mostrar
+
+###
+
+GET http://localhost:8080/api/futchamp/liga/mostrar/nombre/Los pescaditos
+
+###
+
+PUT http://localhost:8080/api/futchamp/liga/actualizar
+Content-Type: application/json
+
+{
+  "id": 2,
+  "nombre": "Proyecto los pescaditos",
+  "imagen": "www.urlIgamenLiga.com"
+}
+
+###
+
+DELETE http://localhost:8080/api/futchamp/liga/eliminar/1
+
+
+########################################################################################################################
+
+# JORNADA
+
+POST http://localhost:8080/api/futchamp/jornada/agregar
+Content-Type: application/json
+
+{
+  "referencia": "jornada 2",
+  "fecha": "2003-06-28",
+  "liga": {
+    "nombre": "proyecto los jugadores"
+  }
+}
+
+###
+
+GET http://localhost:8080/api/futchamp/jornada/mostrar
+
+###
+
+GET http://localhost:8080/api/futchamp/jornada/mostrar/referencia/jornada 2
+
+###
+
+PUT http://localhost:8080/api/futchamp/jornada/actualizar
+Content-Type: application/json
+
+{
+  "id": 1,
+  "referencia": "jornada 3",
+  "fecha": "2020-06-01"
+}
+
+###
+
+DELETE http://localhost:8080/api/futchamp/jornada/eliminar/1
+
+########################################################################################################################
+
+
+# PARTIDO
+
+
+########################################################################################################################
+# EQUIPO
+POST http://localhost:8080/api/futchamp/equipo/agregar
+Content-Type: application/json
+
+{
+  "nombre": "Los pececitos",
+  "categoria": "medianos",
+  "logo": "www.urlImagemLogo.com",
+  "partido": {
+    "referencia": "equiAequiB"
+  }
+}
+
+###
+
+GET http://localhost:8080/api/futchamp/equipo/mostrar
+
+###
+
+GET http://localhost:8080/api/futchamp/equipo/mostrar/categoria/medianos
+
+###
+
+GET http://localhost:8080/api/futchamp/equipo/mostrar/nombre/los pececitos
+
+###
+
+PUT http://localhost:8080/api/futchamp/equipo/actualizar
+Content-Type: application/json
+
+{
+  "id": 4,
+  "nombre": "Los pececitos grandes",
+  "categoria": "grandes",
+  "logo": "www.urlImagemLogo.com"
+}
+
+###
+
+DELETE http://localhost:8080/api/futchamp/equipo/eliminar/2
+
+########################################################################################################################
 # JUGADOR
 
 POST http://localhost:8080/api/futchamp/jugador/agregar
@@ -56,42 +182,6 @@ Content-Type: application/json
 
 DELETE http://localhost:8080/api/futchamp/jugador/eliminar/5
 
-
-########################################################################################################################
-# LIGA
-
-POST http://localhost:8080/api/futchamp/liga/agregar
-Content-Type: application/json
-
-{
-  "nombre": "Los pescaditos",
-  "imagen": "www.urlIgamenLiga.com"
-}
-
-###
-
-GET http://localhost:8080/api/futchamp/liga/mostrar
-
-###
-
-GET http://localhost:8080/api/futchamp/liga/mostrar/nombre/Los pescaditos
-
-###
-
-PUT http://localhost:8080/api/futchamp/liga/actualizar
-Content-Type: application/json
-
-{
-  "id": 2,
-  "nombre": "Proyecto los pescaditos",
-  "imagen": "www.urlIgamenLiga.com"
-}
-
-###
-
-DELETE http://localhost:8080/api/futchamp/liga/eliminar/2
-
-
 ########################################################################################################################
 # COORDINADOR
 
@@ -110,7 +200,7 @@ Content-Type: application/json
   "ocupacion": "coordinador",
   "cargo": "jefe",
   "equipo": {
-    "nombre": "los gatos"
+    "nombre": "los perros"
   }
 }
 
@@ -124,7 +214,7 @@ GET http://localhost:8080/api/futchamp/coordinador/mostrar/idEquipo/2
 
 ###
 
-GET http://localhost:8080/api/futchamp/coordinador/mostrar/dni/12345678B
+GET http://localhost:8080/api/futchamp/coordinador/mostrar/dni/A01478269K
 
 ###
 
@@ -153,61 +243,9 @@ Content-Type: application/json
 ### Este enlace actualiza la clave del coordinador
 PUT http://localhost:8080/api/futchamp/coordinador/actualizar/clave?idCoordinador=15&nuevaClave=x9893913a
 
+###
 
-
+DELETE http://localhost:8080/api/futchamp/coordinador/eliminar/14
 
 ###
 
-
-
-
-########################################################################################################################
-# EQUIPO
-POST http://localhost:8080/api/futchamp/equipo/agregar
-Content-Type: application/json
-
-{
-  "nombre": "Los pececitos",
-  "categoria": "medianos",
-  "logo": "www.urlImagemLogo.com",
-  "liga": {
-    "nombre": "proyecto los jugadores"
-  }
-}
-
-###
-
-GET http://localhost:8080/api/futchamp/equipo/mostrar
-
-###
-
-GET http://localhost:8080/api/futchamp/equipo/mostrar/categoria/medianos
-
-###
-
-GET http://localhost:8080/api/futchamp/equipo/mostrar/nombre/los pececitos
-
-###
-
-PUT http://localhost:8080/api/futchamp/equipo/actualizar
-Content-Type: application/json
-
-{
-  "id": 4,
-  "nombre": "Los pececitos grandes",
-  "categoria": "grandes",
-  "logo": "www.urlImagemLogo.com"
-}
-
-###
-
-DELETE http://localhost:8080/api/futchamp/equipo/eliminar/4
-
-
-
-########################################################################################################################
-# JORNADA
-
-
-########################################################################################################################
-# PARTIDO

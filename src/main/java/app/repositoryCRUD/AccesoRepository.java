@@ -10,5 +10,4 @@ public interface AccesoRepository extends CrudRepository<Acceso, Long> {
 
     Acceso findAccesoByPersona(Persona coordinador);  // Encuantra la clave de acceso de una coordinador
 
-
 }

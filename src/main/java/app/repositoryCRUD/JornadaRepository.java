@@ -5,6 +5,10 @@ import app.entidades.Jornada;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+
 @Repository
-public interface JornadaRepository  extends CrudRepository<Jornada, Long> {
+public interface JornadaRepository extends CrudRepository<Jornada, Long> {
+
+    Jornada findJornadaByReferencia(String referencia); // Obtiene una jornada
+
 }

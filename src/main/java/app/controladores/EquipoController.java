@@ -2,8 +2,10 @@ package app.controladores;
 
 import app.entidades.Equipo;
 import app.entidades.Liga;
+import app.entidades.Partido;
 import app.repositoryCRUD.EquipoRepository;
 import app.repositoryCRUD.LigaRepository;
+import app.repositoryCRUD.PartidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -21,16 +23,16 @@ public class EquipoController {
     private EquipoRepository equipoRepository;
 
     @Autowired
-    private LigaRepository obtenerDatosLigaRepository;
+    private PartidoRepository obtenerDatosPartidoRepository;
 
 
     @PostMapping("/agregar")
     public ResponseEntity<Equipo> agregarEquipo(@RequestBody Equipo equipo) {
-        Liga obtenerLiga = obtenerDatosLigaRepository.findLigaByNombre(equipo.getLiga().getNombre());
+        Partido obtenerPartido = obtenerDatosPartidoRepository.findPartidoByReferencia(equipo.getPartido().getReferencia());
 
-        if (obtenerLiga != null) {
-            equipo.setLiga(obtenerLiga); // Asigna el id de liga
-            Equipo addEquipo = equipoRepository.save(equipo);
+        if (obtenerPartido != null) {
+            equipo.setPartido(obtenerPartido); // asigna el id de partido
+            Equipo addEquipo = equipoRepository.save(equipo); // guarda el partido
             return ResponseEntity.status(HttpStatus.CREATED).body(addEquipo);
         } else {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No se puedo agregar el equipo.");
@@ -90,6 +92,7 @@ public class EquipoController {
     }
 
 
+    // Verificar este metodo, elimina toda la red - bloquado para no borrar
     @DeleteMapping("/eliminar/{idEquipo}")
     public ResponseEntity<?> eliminarLiga(@PathVariable Long idEquipo) {
         Optional<Equipo> buscarEquipoEliminar = equipoRepository.findById(idEquipo);

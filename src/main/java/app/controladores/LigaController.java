@@ -65,6 +65,7 @@ public class LigaController {
         }
     }
 
+    // Verificar este metodo, elimina toda la red - bloquado para no borrar
     @DeleteMapping("/eliminar/{idLiga}")
     public ResponseEntity<?> eliminarLiga(@PathVariable Long idLiga) {
         Optional<Liga> buscarLigaEliminar = ligaRepository.findById(idLiga);

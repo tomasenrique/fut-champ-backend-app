@@ -5,6 +5,8 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Partido implements Serializable {
@@ -12,6 +14,8 @@ public class Partido implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private String referencia; // Para ubicar el partido
 
     @Size(max = 100)
     private String equipoA; // Nombre del equipo
@@ -31,11 +35,17 @@ public class Partido implements Serializable {
     @JoinColumn(name = "id_jornada") // campo o columna a crear en la tabla
     private Jornada jornada;
 
+
+    // Relacion 1:N hacia Equipo
+    @OneToMany(mappedBy = "partido", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Equipo.class)
+    private List<Equipo> equipos = new ArrayList<>();
+
     // Constructores
     public Partido() {
     }
 
-    public Partido(String equipoA, String equipoB, LocalDate fecha, LocalTime inicio, LocalTime fin, String estadio, Jornada jornada) {
+    public Partido(String referencia, @Size(max = 100) String equipoA, @Size(max = 100) String equipoB, LocalDate fecha, LocalTime inicio, LocalTime fin, @Size(max = 100) String estadio, Jornada jornada) {
+        this.referencia = referencia;
         this.equipoA = equipoA;
         this.equipoB = equipoB;
         this.fecha = fecha;
@@ -110,4 +120,11 @@ public class Partido implements Serializable {
         this.jornada = jornada;
     }
 
+    public String getReferencia() {
+        return referencia;
+    }
+
+    public void setReferencia(String referencia) {
+        this.referencia = referencia;
+    }
 }

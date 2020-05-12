@@ -18,10 +18,6 @@ public class Liga implements Serializable {
 
     private String imagen; // Imagen url de la liga.
 
-    // Relacion 1:N hacia Equipo
-    @OneToMany(mappedBy = "liga", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Equipo.class)
-    private List<Equipo> equipos = new ArrayList<>();
-
     // Relacion 1:N hacia Jornada
     @OneToMany(mappedBy = "liga", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Jornada.class)
     private List<Jornada> jornadas = new ArrayList<>(); // Para la relacion con la clase Jornada

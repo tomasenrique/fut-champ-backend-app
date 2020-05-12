@@ -32,16 +32,17 @@ public class CoordinadorController {
     private EquipoRepository obtenerDatosEquipoRepository;
 
 
+    // Agrega un coordinador y crea una clave automatica por defecto para luego actualizarla
     @PostMapping("/agregar")
     public ResponseEntity<Persona> agregarCoordinadorClave(@RequestBody Persona coordinador) {
         Equipo equipoBuscado = obtenerDatosEquipoRepository.findEquipoByNombre(coordinador.getEquipo().getNombre()); // Busca el equipo por su nombre
 
         if (equipoBuscado != null) {
             coordinador.setEquipo(equipoBuscado); // asigna el id de equipoBuscado
-            Persona addCoordinador = personaRepositoryCoordinador.save(coordinador);
+            Persona addCoordinador = personaRepositoryCoordinador.save(coordinador); // Guarda el coordinador
             Acceso claveCompuesta = new Acceso(coordinador.getDni() + coordinador.getfNac(), coordinador); // genera clave automatica
-            accesoRepository.save(claveCompuesta); // guarda la clave generada del coordinador.
-            return ResponseEntity.status(HttpStatus.CREATED).body(addCoordinador);
+            accesoRepository.save(claveCompuesta); // Guarda la clave generada del coordinador.
+            return ResponseEntity.status(HttpStatus.CREATED).body(addCoordinador); //Devuelve el objeto creado menos la clave
         } else {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No se puedo agregar el coordinador.");
         }
@@ -63,9 +64,10 @@ public class CoordinadorController {
     @GetMapping("/mostrar/idEquipo/{idEquipo}")
     public Iterable<Persona> mostrarCoordinadoresEquipo(@PathVariable Long idEquipo) {
         Optional<Equipo> buscandoEquipo = obtenerDatosEquipoRepository.findById(idEquipo); // busca equipo para obtener su id
-        try {
+
+        if (buscandoEquipo.isPresent()) {
             return personaRepositoryCoordinador.findByOcupacionAndEquipo(OCUPACION, buscandoEquipo.get());
-        } catch (DataIntegrityViolationException e) {
+        } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No hay usuarios registrados");
         }
     }
@@ -84,7 +86,7 @@ public class CoordinadorController {
 
     /**
      * CREAR AQUI UN METODO PARA VERIFICAR ACCESO DE UN COORDINADOR POR MEDIO DE SU DNI Y SU CLAVE DE ACCESO QUE DEVUELVA
-     * COMO RESPUESTA TRUE O FALSE PARA ACCEDER A LA APLICACION MOVIL.
+     * COMO RESPUESTA TRUE O FALSE PARA ACCEDER A LA APLICACION MOVIL
      */
 
     // =================================================================================================================
