@@ -5,8 +5,6 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Partido implements Serializable {
@@ -15,44 +13,56 @@ public class Partido implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Size(max = 100)
     private String referencia; // Para ubicar el partido
 
-    @Size(max = 100)
-    private String equipoA; // Nombre del equipo
-
-    @Size(max = 100)
-    private String equipoB;
-
     private LocalDate fecha; // Fecha del partido
-    private LocalTime inicio; // Hora de inicio
-    private LocalTime fin; // Hora final
+    private LocalTime hora; // Hora de inicio
 
     @Size(max = 100)
     private String estadio; // Nombre de estadio
 
-    // Relacion N:1 hacia Jornada
-    @ManyToOne(targetEntity = Jornada.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_jornada") // campo o columna a crear en la tabla
-    private Jornada jornada;
+    @Size(max = 20)
+    private int jornada; // sera el numero de la jornada en donde se encuentra el partido
 
 
-    // Relacion 1:N hacia Equipo
-    @OneToMany(mappedBy = "partido", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Equipo.class)
-    private List<Equipo> equipos = new ArrayList<>();
+    // Relacion N:1 desde Equipo
+    @ManyToOne(targetEntity = Equipo.class, fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+    @JoinColumn(name = "id_local") // Agrega el campo id_local a esta tabla
+    private Equipo local;
+
+    // Relacion N:1 desde Equipo
+    @ManyToOne(targetEntity = Equipo.class, fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+    @JoinColumn(name = "id_visitante") // Agrega el campo id_visitante a esta tabla
+    private Equipo visitante;
+
+    // Relacion N:1 desde Calendario
+    @ManyToOne(targetEntity = Calendario.class, fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+    @JoinColumn(name = "id_calendario") // Agrega el campo id_calendario a esta tabla
+    private Calendario calendario;
+
+
+    // Relacion de 1:1 hacia Marcador ==>> id de partido en la tabla Marcador
+    @OneToOne(mappedBy = "partido", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Marcador.class)
+    private Marcador marcador;
+
 
     // Constructores
     public Partido() {
     }
 
-    public Partido(String referencia, @Size(max = 100) String equipoA, @Size(max = 100) String equipoB, LocalDate fecha, LocalTime inicio, LocalTime fin, @Size(max = 100) String estadio, Jornada jornada) {
+    public Partido(Equipo local, Equipo visitante, Marcador marcador) {
+        this.local = local;
+        this.visitante = visitante;
+        this.marcador = marcador;
+    }
+
+    public Partido(@Size(max = 100) String referencia, LocalDate fecha, LocalTime hora, @Size(max = 100) String estadio, Calendario calendario) {
         this.referencia = referencia;
-        this.equipoA = equipoA;
-        this.equipoB = equipoB;
         this.fecha = fecha;
-        this.inicio = inicio;
-        this.fin = fin;
+        this.hora = hora;
         this.estadio = estadio;
-        this.jornada = jornada;
+        this.calendario = calendario;
     }
 
     // Setter y Getter
@@ -64,21 +74,6 @@ public class Partido implements Serializable {
         this.id = id;
     }
 
-    public String getEquipoA() {
-        return equipoA;
-    }
-
-    public void setEquipoA(String equipoA) {
-        this.equipoA = equipoA;
-    }
-
-    public String getEquipoB() {
-        return equipoB;
-    }
-
-    public void setEquipoB(String equipoB) {
-        this.equipoB = equipoB;
-    }
 
     public LocalDate getFecha() {
         return fecha;
@@ -88,20 +83,12 @@ public class Partido implements Serializable {
         this.fecha = fecha;
     }
 
-    public LocalTime getInicio() {
-        return inicio;
+    public LocalTime getHora() {
+        return hora;
     }
 
-    public void setInicio(LocalTime inicio) {
-        this.inicio = inicio;
-    }
-
-    public LocalTime getFin() {
-        return fin;
-    }
-
-    public void setFin(LocalTime fin) {
-        this.fin = fin;
+    public void setHora(LocalTime hora) {
+        this.hora = hora;
     }
 
     public String getEstadio() {
@@ -112,19 +99,43 @@ public class Partido implements Serializable {
         this.estadio = estadio;
     }
 
-    public Jornada getJornada() {
-        return jornada;
-    }
-
-    public void setJornada(Jornada jornada) {
-        this.jornada = jornada;
-    }
-
     public String getReferencia() {
         return referencia;
     }
 
     public void setReferencia(String referencia) {
         this.referencia = referencia;
+    }
+
+    public int getJornada() {
+        return jornada;
+    }
+
+    public void setJornada(int jornada) {
+        this.jornada = jornada;
+    }
+
+    public Equipo getLocal() {
+        return local;
+    }
+
+    public void setLocal(Equipo local) {
+        this.local = local;
+    }
+
+    public Equipo getVisitante() {
+        return visitante;
+    }
+
+    public void setVisitante(Equipo visitante) {
+        this.visitante = visitante;
+    }
+
+    public Marcador getMarcador() {
+        return marcador;
+    }
+
+    public void setMarcador(Marcador marcador) {
+        this.marcador = marcador;
     }
 }

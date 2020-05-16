@@ -21,26 +21,53 @@ public class Equipo implements Serializable {
 
     private String logo; // url de la imagen de logo del equipo
 
-    // Relacion 1:N hacia Persona Jugador o Coordinador , OJO ==>> CascadeType.ALL indica que si se puede borrar un equipo
-    @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Persona.class)
-    private List<Persona> integrantes_equipo = new ArrayList<>();
+    // Relacion N:1 desde Liga
+    @ManyToOne(targetEntity = League.class, fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+    @JoinColumn(name = "id_league") // Agrega el campo id_league a esta tabla
+    private League league;
+
+    // Relacion N:1 desde calendario
+    @ManyToOne(targetEntity = Calendario.class, fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+    @JoinColumn(name = "id_calendario") // Agrega el campo id_calendario a esta tabla
+    private Calendario calendario;
 
 
-    // Relacion N:1 hacia Liga
-    // Al poner CascadeType.DETACH indicamos que solo se borre el equipo y no asociado a el.
-    @ManyToOne(targetEntity = Partido.class, fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
-    @JoinColumn(name = "id_partido") // campo o columna a crear en la tabla
-    private Partido partido;
+    // Relacion 1:N hacia Persona Jugador
+    @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Jugador.class)
+    private List<Jugador> jugadores = new ArrayList<>();
+
+    // relacion 1:N hacia Partido local
+    @OneToMany(mappedBy = "local", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Partido.class)
+    private List<Partido> partidosLocal = new ArrayList<>();
+
+    // relacion 1:N hacia Partido visitante
+    @OneToMany(mappedBy = "visitante", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Partido.class)
+    private List<Partido> partidosVisitante = new ArrayList<>();
+
+    // Relacion 1:1 hacia Tabla ==>> id de equipo en la clase tabla
+    @OneToOne(mappedBy = "equipo", cascade = CascadeType.ALL)
+    private Tabla tabla; // Sera para la tabla de puntuacion de los equipos
 
     // Contructores
     public Equipo() {
     }
 
-    public Equipo(@Size(max = 100) String nombre, @Size(max = 100) String categoria, String logo, Partido partido) {
+    public Equipo(@Size(max = 100) String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Equipo(@Size(max = 100) String nombre, League league, Calendario calendario) {
+        this.nombre = nombre;
+        this.league = league;
+        this.calendario = calendario;
+    }
+
+    public Equipo(@Size(max = 100) String nombre, @Size(max = 100) String categoria, String logo, League league, Calendario calendario) {
         this.nombre = nombre;
         this.categoria = categoria;
         this.logo = logo;
-        this.partido = partido;
+        this.league = league;
+        this.calendario = calendario;
     }
 
     // Setter y Getter
@@ -68,19 +95,27 @@ public class Equipo implements Serializable {
         this.categoria = categoria;
     }
 
-    public Partido getPartido() {
-        return partido;
-    }
-
-    public void setPartido(Partido partido) {
-        this.partido = partido;
-    }
-
     public String getLogo() {
         return logo;
     }
 
     public void setLogo(String logo) {
         this.logo = logo;
+    }
+
+    public League getLeague() {
+        return league;
+    }
+
+    public void setLeague(League league) {
+        this.league = league;
+    }
+
+    public Calendario getCalendario() {
+        return calendario;
+    }
+
+    public void setCalendario(Calendario calendario) {
+        this.calendario = calendario;
     }
 }

@@ -5,7 +5,7 @@
 
 # LIGA
 
-POST http://localhost:8080/api/futchamp/liga/agregar
+POST http://localhost:8080/api/futchamp/league/agregar
 Content-Type: application/json
 
 {
@@ -15,15 +15,15 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/api/futchamp/liga/mostrar
+GET http://localhost:8080/api/futchamp/league/mostrar
 
 ###
 
-GET http://localhost:8080/api/futchamp/liga/mostrar/nombre/Los pescaditos
+GET http://localhost:8080/api/futchamp/league/mostrar/nombre/Los pescaditos
 
 ###
 
-PUT http://localhost:8080/api/futchamp/liga/actualizar
+PUT http://localhost:8080/api/futchamp/league/actualizar
 Content-Type: application/json
 
 {
@@ -34,7 +34,7 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:8080/api/futchamp/liga/eliminar/1
+DELETE http://localhost:8080/api/futchamp/league/eliminar/1
 
 
 ########################################################################################################################
@@ -47,7 +47,7 @@ Content-Type: application/json
 {
   "referencia": "jornada 2",
   "fecha": "2003-06-28",
-  "liga": {
+  "league": {
     "nombre": "proyecto los jugadores"
   }
 }
