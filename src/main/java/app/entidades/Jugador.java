@@ -3,7 +3,6 @@ package app.entidades;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.time.LocalDate;
 
 @Entity
 public class Jugador implements Serializable {
@@ -22,19 +21,13 @@ public class Jugador implements Serializable {
     @Column(unique = true)
     private String dni;
 
-    private LocalDate fNac;  // Fecha de nacimiento
-
     @Size(max = 40)
     @Column(unique = true)
     private String email;
 
-    @Size(max = 20)
-    private String telefono;
-
     private String imagen; // url de ubicacion de la imagen
 
-    @Size(max = 100)
-    private String posicion; // Lugar que ocupa en el campo el jugador
+    private String posicion;
 
     @Size(max = 10)
     private String dorsal; // Numero de camiseta del jugador
@@ -50,24 +43,23 @@ public class Jugador implements Serializable {
     public Jugador() {
     }
 
-    // Constructor resumido
-    public Jugador(@Size(max = 100) String nombre, @Size(max = 100) String apellidos, @Size(max = 20) String dni, @Size(max = 40) String email, @Size(max = 10) String dorsal, Equipo equipo) {
+    // Constructor sin imagen
+    public Jugador(@Size(max = 100) String nombre, @Size(max = 100) String apellidos, @Size(max = 20) String dni, @Size(max = 40) String email, String posicion, @Size(max = 10) String dorsal, Equipo equipo) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
         this.email = email;
+        this.posicion = posicion;
         this.dorsal = dorsal;
         this.equipo = equipo;
     }
 
-    // Constructor completo
-    public Jugador(@Size(max = 100) String nombre, @Size(max = 100) String apellidos, @Size(max = 20) String dni, LocalDate fNac, @Size(max = 40) String email, @Size(max = 20) String telefono, String imagen, @Size(max = 100) String posicion, @Size(max = 10) String dorsal, Equipo equipo) {
+    // Constructor con imagen
+    public Jugador(@Size(max = 100) String nombre, @Size(max = 100) String apellidos, @Size(max = 20) String dni, @Size(max = 40) String email, String imagen, String posicion, @Size(max = 10) String dorsal, Equipo equipo) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
-        this.fNac = fNac;
         this.email = email;
-        this.telefono = telefono;
         this.imagen = imagen;
         this.posicion = posicion;
         this.dorsal = dorsal;
@@ -107,36 +99,12 @@ public class Jugador implements Serializable {
         this.dni = dni;
     }
 
-    public LocalDate getfNac() {
-        return fNac;
-    }
-
-    public void setfNac(LocalDate fNac) {
-        this.fNac = fNac;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getPosicion() {
-        return posicion;
-    }
-
-    public void setPosicion(String posicion) {
-        this.posicion = posicion;
     }
 
     public String getDorsal() {
@@ -163,5 +131,11 @@ public class Jugador implements Serializable {
         this.imagen = imagen;
     }
 
+    public String getPosicion() {
+        return posicion;
+    }
 
+    public void setPosicion(String posicion) {
+        this.posicion = posicion;
+    }
 }

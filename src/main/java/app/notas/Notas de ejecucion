@@ -9,8 +9,8 @@ POST http://localhost:8080/api/futchamp/league/agregar
 Content-Type: application/json
 
 {
-  "nombre": "Los pescaditos",
-  "imagen": "www.urlIgamenLiga.com"
+  "name": "Primera Catalana",
+  "logo": "https://resfu.thumbr.io/media/img/league_logos/fcf.png?size=120x&5"
 }
 
 ###
@@ -19,7 +19,7 @@ GET http://localhost:8080/api/futchamp/league/mostrar
 
 ###
 
-GET http://localhost:8080/api/futchamp/league/mostrar/nombre/Los pescaditos
+GET http://localhost:8080/api/futchamp/league/mostrar/nombre/Primera Catalana
 
 ###
 
@@ -36,62 +36,17 @@ Content-Type: application/json
 
 DELETE http://localhost:8080/api/futchamp/league/eliminar/1
 
-
 ########################################################################################################################
 
-# JORNADA
-
-POST http://localhost:8080/api/futchamp/jornada/agregar
-Content-Type: application/json
-
-{
-  "referencia": "jornada 2",
-  "fecha": "2003-06-28",
-  "league": {
-    "nombre": "proyecto los jugadores"
-  }
-}
-
-###
-
-GET http://localhost:8080/api/futchamp/jornada/mostrar
-
-###
-
-GET http://localhost:8080/api/futchamp/jornada/mostrar/referencia/jornada 2
-
-###
-
-PUT http://localhost:8080/api/futchamp/jornada/actualizar
-Content-Type: application/json
-
-{
-  "id": 1,
-  "referencia": "jornada 3",
-  "fecha": "2020-06-01"
-}
-
-###
-
-DELETE http://localhost:8080/api/futchamp/jornada/eliminar/1
-
-########################################################################################################################
-
-
-# PARTIDO
-
-
-########################################################################################################################
 # EQUIPO
 POST http://localhost:8080/api/futchamp/equipo/agregar
 Content-Type: application/json
 
 {
-  "nombre": "Los pececitos",
-  "categoria": "medianos",
-  "logo": "www.urlImagemLogo.com",
-  "partido": {
-    "referencia": "equiAequiB"
+  "name": "Futbol Club Barcelona",
+  "logo": "http://t3.gstatic.com/images?q=tbn:ANd9GcTdlZboGqqXYQquR6s1qeDckeEdPetLAHMKbDaMpE0Pyn009AoV",
+  "league": {
+    "name": "Primera Catalana"
   }
 }
 
@@ -101,28 +56,6 @@ GET http://localhost:8080/api/futchamp/equipo/mostrar
 
 ###
 
-GET http://localhost:8080/api/futchamp/equipo/mostrar/categoria/medianos
-
-###
-
-GET http://localhost:8080/api/futchamp/equipo/mostrar/nombre/los pececitos
-
-###
-
-PUT http://localhost:8080/api/futchamp/equipo/actualizar
-Content-Type: application/json
-
-{
-  "id": 4,
-  "nombre": "Los pececitos grandes",
-  "categoria": "grandes",
-  "logo": "www.urlImagemLogo.com"
-}
-
-###
-
-DELETE http://localhost:8080/api/futchamp/equipo/eliminar/2
-
 ########################################################################################################################
 # JUGADOR
 
@@ -130,19 +63,14 @@ POST http://localhost:8080/api/futchamp/jugador/agregar
 Content-Type: application/json
 
 {
-  "nombre": "tomas enrique",
-  "apellidos": "estrada torres",
-  "dni": "43588075Q",
-  "genero": "H",
-  "fNac": "1980-01-07",
-  "email": "tomasenriquea@hotmail.com",
-  "telefono": "640622522",
-  "imagen": "www.urlIgamenJugador.com",
-  "ocupacion": "jugador",
-  "posicion": "EI",
+  "nombre": "Lionel",
+  "apellidos": "Messi",
+  "dni": "12345678A",
+  "email": "messi@hotmial.com",
+  "posicion": "Delantero",
   "dorsal": "10",
   "equipo": {
-    "nombre": "los gatos"
+    "name": "Futbol Club Barcelona"
   }
 }
 
@@ -152,100 +80,5 @@ GET http://localhost:8080/api/futchamp/jugador/mostrar
 
 ###
 
-GET http://localhost:8080/api/futchamp/jugador/mostrar/idEquipo/1
-
-###
-
-GET http://localhost:8080/api/futchamp/jugador/mostrar/dni/x9893913a
-
-###
-
-PUT http://localhost:8080/api/futchamp/jugador/actualizar
-Content-Type: application/json
-
-{
-  "id": 5,
-  "nombre": "enrique",
-  "apellidos": "torres",
-  "dni": "x9893913a",
-  "genero": "H",
-  "fNac": "1979-11-30",
-  "email": "tomasenrique@live.com",
-  "telefono": "123456789",
-  "imagen": "www.urlImagem.com",
-  "ocupacion": "jugador",
-  "posicion": "LI",
-  "dorsal": "35"
-}
-
-###
-
-DELETE http://localhost:8080/api/futchamp/jugador/eliminar/5
 
 ########################################################################################################################
-# COORDINADOR
-
-POST http://localhost:8080/api/futchamp/coordinador/agregar
-Content-Type: application/json
-
-{
-  "nombre": "Luis alberto",
-  "apellidos": "arriaga calderon",
-  "dni": "A01478269K",
-  "genero": "H",
-  "fNac": "1969-02-17",
-  "email": "luisAlberto@hotmail.com",
-  "telefono": "666258106",
-  "imagen": "www.urlIgamenCoordinador.com",
-  "ocupacion": "coordinador",
-  "cargo": "jefe",
-  "equipo": {
-    "nombre": "los perros"
-  }
-}
-
-###
-
-GET http://localhost:8080/api/futchamp/coordinador/mostrar
-
-###
-
-GET http://localhost:8080/api/futchamp/coordinador/mostrar/idEquipo/2
-
-###
-
-GET http://localhost:8080/api/futchamp/coordinador/mostrar/dni/A01478269K
-
-###
-
-PUT http://localhost:8080/api/futchamp/coordinador/actualizar
-Content-Type: application/json
-
-{
-  "id": 1,
-  "nombre": "Luis alberto",
-  "apellidos": "arriaga calderon",
-  "dni": "A01478269K",
-  "genero": "H",
-  "fNac": "1969-02-17",
-  "email": "luisAlberto@hotmail.com",
-  "telefono": "666258106",
-  "imagen": "www.urlIgamenCoordinador.com",
-  "ocupacion": "coordinador",
-  "cargo": "jefe",
-  "equipo": {
-    "nombre": "los gatos"
-  }
-}
-
-###
-
-### Este enlace actualiza la clave del coordinador
-PUT http://localhost:8080/api/futchamp/coordinador/actualizar/clave?idCoordinador=15&nuevaClave=x9893913a
-
-###
-
-DELETE http://localhost:8080/api/futchamp/coordinador/eliminar/14
-
-###
-

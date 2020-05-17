@@ -14,10 +14,7 @@ public class Equipo implements Serializable {
     private Long id;
 
     @Size(max = 100)
-    private String nombre;  // nombre de equipo
-
-    @Size(max = 100)
-    private String categoria; // Sera si es A o B, primera o segunda division
+    private String name;  // nombre de equipo
 
     private String logo; // url de la imagen de logo del equipo
 
@@ -52,19 +49,14 @@ public class Equipo implements Serializable {
     public Equipo() {
     }
 
-    public Equipo(@Size(max = 100) String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Equipo(@Size(max = 100) String nombre, League league, Calendario calendario) {
-        this.nombre = nombre;
+    public Equipo(@Size(max = 100) String name, String logo, League league) {
+        this.name = name;
+        this.logo = logo;
         this.league = league;
-        this.calendario = calendario;
     }
 
-    public Equipo(@Size(max = 100) String nombre, @Size(max = 100) String categoria, String logo, League league, Calendario calendario) {
-        this.nombre = nombre;
-        this.categoria = categoria;
+    public Equipo(@Size(max = 100) String name, String logo, League league, Calendario calendario) {
+        this.name = name;
         this.logo = logo;
         this.league = league;
         this.calendario = calendario;
@@ -79,20 +71,12 @@ public class Equipo implements Serializable {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getLogo() {
@@ -118,4 +102,5 @@ public class Equipo implements Serializable {
     public void setCalendario(Calendario calendario) {
         this.calendario = calendario;
     }
+
 }

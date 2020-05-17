@@ -73,11 +73,5 @@ public class League implements Serializable {
     public void setCalendario(Calendario calendario) {
         this.calendario = calendario;
     }
-
-    // PARA VER SI DA ERROR
-//    public List<Equipo> getEquipos() { // para obtener la lista de equipoa para generar el calendario de partidos
-//        return Equipos;
-//    }
-
-
+    
 }
