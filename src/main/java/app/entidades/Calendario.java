@@ -26,8 +26,8 @@ public class Calendario implements Serializable {
 
 
     // Relacion 1:1 hacia liga
-    @OneToOne(mappedBy = "calendario", cascade = CascadeType.ALL)
-    private League league;
+//    @OneToOne(mappedBy = "calendario", cascade = CascadeType.ALL)
+//    private League league;
 
 
     // se crea dos matrices bidimensionales con numeros, los cuales correspondran a los equipos
@@ -50,13 +50,13 @@ public class Calendario implements Serializable {
         this.id = id;
     }
 
-    public League getLeague() {
-        return league;
-    }
-
-    public void setLeague(League league) {
-        this.league = league;
-    }
+//    public League getLeague() {
+//        return league;
+//    }
+//
+//    public void setLeague(League league) {
+//        this.league = league;
+//    }
 
 
     // Metodos

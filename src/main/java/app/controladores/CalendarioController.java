@@ -18,20 +18,26 @@ import java.time.LocalTime;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/calendario")
+@RequestMapping(path = "/api/futchamp/calendario")
 public class CalendarioController {
+
     @Autowired
     private CalendarioRepository calendarioRepository;
+
     @Autowired
-    private LeagueRepository ligaRepository;
+    private LeagueRepository obtenerDatosLeagueRepository;
 
     @Autowired
     private EquipoRepository equipoRepository;
 
-    //add
-    @PostMapping("/add/{nLiga}")
-    public void addCalendario(@PathVariable("nLiga") String nLiga){
-        League liga= ligaRepository.findLigaByName(nLiga);
+    //
+    @PostMapping("/agregar/{nombreLeague}")
+    public void addCalendario(@PathVariable String nombreLeague){
+        League league = obtenerDatosLeagueRepository.findLigaByName(nombreLeague);
+
+
+
+
         Calendario calendario= new Calendario();
 
 
@@ -41,15 +47,21 @@ public class CalendarioController {
         calendario.generaCalendario(listaEquipos, LocalDate.of(2020,9,01), LocalTime.of(10,30));
         calendarioRepository.save(calendario);
     }
-    //get
-    @GetMapping("/mostrar")
-    public Iterable<League> mostrarLigas() {
-        try {
-            return ligaRepository.findAll();
-        } catch (DataIntegrityViolationException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No hay ligas registrados");
-        }
-    }
+
+
+
+
+
+
+//    //get
+//    @GetMapping("/mostrar")
+//    public Iterable<League> mostrarLigas() {
+//        try {
+//            return obtenerDatosLeagueRepository.findAll();
+//        } catch (DataIntegrityViolationException e) {
+//            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No hay ligas registrados");
+//        }
+//    }
 
     //delete
     @DeleteMapping("/deleteAll")
