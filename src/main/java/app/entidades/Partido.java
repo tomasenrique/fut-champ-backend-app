@@ -22,7 +22,6 @@ public class Partido implements Serializable {
     @Size(max = 100)
     private String estadio; // Nombre de estadio
 
-    @Size(max = 20)
     private int jornada; // sera el numero de la jornada en donde se encuentra el partido
 
 

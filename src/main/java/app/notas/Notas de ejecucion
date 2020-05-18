@@ -23,19 +23,6 @@ GET http://localhost:8080/api/futchamp/league/mostrar/nombre/Primera Catalana
 
 ###
 
-PUT http://localhost:8080/api/futchamp/league/actualizar
-Content-Type: application/json
-
-{
-  "id": 2,
-  "nombre": "Proyecto los pescaditos",
-  "imagen": "www.urlIgamenLiga.com"
-}
-
-###
-
-DELETE http://localhost:8080/api/futchamp/league/eliminar/1
-
 ########################################################################################################################
 
 # EQUIPO
@@ -67,6 +54,7 @@ Content-Type: application/json
   "apellidos": "Messi",
   "dni": "12345678A",
   "email": "messi@hotmial.com",
+  "imagen": "https://www.fcbarcelona.com/photo-resources/2019/09/12/0bfc0bc2-26f5-4207-b1ff-1ef7971c74c0/Messi-600x708.png?width=670&height=790",
   "posicion": "Delantero",
   "dorsal": "10",
   "equipo": {
@@ -82,3 +70,12 @@ GET http://localhost:8080/api/futchamp/jugador/mostrar
 
 
 ########################################################################################################################
+# PRUEBA CALENDARIO
+
+POST http://localhost:8080/calendario/add/Primera Catalana
+
+<> 2020-05-18T074955.500.json
+
+###
+
+
