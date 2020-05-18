@@ -16,12 +16,7 @@ public class League implements Serializable {
     private String name; // nombre de la liga
 
     private String logo; // Imagen url de la liga.
-
-    // Relacion 1:1 desde Calendario
-//    @OneToOne // Agrega el campo id_calendario a esta tabla
-//    @JoinColumn(name = "id_calendario", updatable = false, nullable = true)
-//    private Calendario calendario;
-
+    
     // Relacion 1:N hacia Equipo
     @OneToMany(mappedBy = "league", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Equipo.class)
     private List<Equipo> Equipos;
@@ -34,12 +29,6 @@ public class League implements Serializable {
         this.name = name;
         this.logo = logo;
     }
-
-//    public League(@Size(max = 150) String name, String logo, Calendario calendario) {
-//        this.name = name;
-//        this.logo = logo;
-//        this.calendario = calendario;
-//    }
 
     // Setter y Getter
     public Long getId() {
@@ -66,12 +55,4 @@ public class League implements Serializable {
         this.logo = logo;
     }
 
-//    public Calendario getCalendario() {
-//        return calendario;
-//    }
-//
-//    public void setCalendario(Calendario calendario) {
-//        this.calendario = calendario;
-//    }
-    
 }

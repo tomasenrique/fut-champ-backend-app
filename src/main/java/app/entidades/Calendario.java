@@ -20,14 +20,9 @@ public class Calendario implements Serializable {
     private List<Partido> partidos;
 
 
-    // relacion 1:N hacia equipo
-    @OneToMany(mappedBy = "calendario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Equipo.class)
-    private List<Equipo> equipos;
-
-
-    // Relacion 1:1 hacia liga
-//    @OneToOne(mappedBy = "calendario", cascade = CascadeType.ALL)
-//    private League league;
+//    // relacion 1:N hacia equipo
+//    @OneToMany(mappedBy = "calendario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Equipo.class)
+//    private List<Equipo> equipos;
 
 
     // se crea dos matrices bidimensionales con numeros, los cuales correspondran a los equipos
@@ -49,14 +44,6 @@ public class Calendario implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-
-//    public League getLeague() {
-//        return league;
-//    }
-//
-//    public void setLeague(League league) {
-//        this.league = league;
-//    }
 
 
     // Metodos

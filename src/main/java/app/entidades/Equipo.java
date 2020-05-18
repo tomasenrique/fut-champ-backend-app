@@ -23,10 +23,10 @@ public class Equipo implements Serializable {
     @JoinColumn(name = "id_league") // Agrega el campo id_league a esta tabla
     private League league;
 
-    // Relacion N:1 desde calendario
-    @ManyToOne(targetEntity = Calendario.class, fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
-    @JoinColumn(name = "id_calendario") // Agrega el campo id_calendario a esta tabla
-    private Calendario calendario;
+//    // Relacion N:1 desde calendario
+//    @ManyToOne(targetEntity = Calendario.class, fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+//    @JoinColumn(name = "id_calendario") // Agrega el campo id_calendario a esta tabla
+//    private Calendario calendario;
 
 
     // Relacion 1:N hacia Persona Jugador
@@ -55,12 +55,12 @@ public class Equipo implements Serializable {
         this.league = league;
     }
 
-    public Equipo(@Size(max = 100) String name, String logo, League league, Calendario calendario) {
-        this.name = name;
-        this.logo = logo;
-        this.league = league;
-        this.calendario = calendario;
-    }
+//    public Equipo(@Size(max = 100) String name, String logo, League league, Calendario calendario) {
+//        this.name = name;
+//        this.logo = logo;
+//        this.league = league;
+//        this.calendario = calendario;
+//    }
 
     // Setter y Getter
     public Long getId() {
@@ -95,12 +95,12 @@ public class Equipo implements Serializable {
         this.league = league;
     }
 
-    public Calendario getCalendario() {
-        return calendario;
-    }
-
-    public void setCalendario(Calendario calendario) {
-        this.calendario = calendario;
-    }
+//    public Calendario getCalendario() {
+//        return calendario;
+//    }
+//
+//    public void setCalendario(Calendario calendario) {
+//        this.calendario = calendario;
+//    }
 
 }
