@@ -4,17 +4,17 @@ package app.controladores;
 import app.entidades.Calendario;
 import app.entidades.Equipo;
 import app.entidades.League;
-import app.repositoryCRUD.CalendarioRepository;
-import app.repositoryCRUD.EquipoRepository;
-import app.repositoryCRUD.LeagueRepository;
+import app.repositoryCRUD.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RestController
@@ -28,45 +28,56 @@ public class CalendarioController {
     private LeagueRepository obtenerDatosLeagueRepository;
 
     @Autowired
-    private EquipoRepository equipoRepository;
+    private EquipoRepository obtenerDatosEquipoRepository;
 
-    //
-    @PostMapping("/agregar/{nombreLeague}")
-    public void addCalendario(@PathVariable String nombreLeague){
-        League league = obtenerDatosLeagueRepository.findLigaByName(nombreLeague);
-
-
-
-
-        Calendario calendario= new Calendario();
+//    @Autowired
+//    private MarcadorRepository obtenerDatosMarcadorRepository;
+//
+//    @Autowired
+//    private PartidoRepository obtenerDatosPartidoRepository;
 
 
-        List<Equipo> listaEquipos = (List<Equipo>) equipoRepository.findAll();
+    @PostMapping("/agregar")
+    public ResponseEntity<Calendario> agregarCalendario(@RequestBody Calendario calendario) {
+        // Para obtenner el id de la league por medio del nombre de esta.
+        League league = obtenerDatosLeagueRepository.findLigaByName(calendario.getLeague());
+        // Obtiene una lista de equipos de una league
+        List<Equipo> listaEquipos = obtenerDatosEquipoRepository.findEquipoByLeague(league);
 
+        if (league != null) { // verifica que exista la liga
+            if (listaEquipos != null) { // verifica que halla una lista de equipos
 
-        calendario.generaCalendario(listaEquipos, LocalDate.of(2020,9,01), LocalTime.of(10,30));
-        calendarioRepository.save(calendario);
+                calendario.generaCalendario(listaEquipos, calendario); // se la pasa la lista de equipos y el calendario para asignar id de este
+                calendarioRepository.save(calendario);
+                return ResponseEntity.status(HttpStatus.CREATED).body(calendario);
+            } else {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No se puedo agregar el calendario, no exixten equipos.");
+            }
+        } else {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No se puedo agregar el calendario, no exixte la league.");
+        }
+    }
+
+    // =================================================================================================================
+
+    @GetMapping("/mostrar")
+    public Iterable<Calendario> mostrarCalendarios() {
+        try {
+            return calendarioRepository.findAll();
+        } catch (DataIntegrityViolationException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No hay Calendarios.");
+        }
     }
 
 
+    // =================================================================================================================
 
 
-
-
-//    //get
-//    @GetMapping("/mostrar")
-//    public Iterable<League> mostrarLigas() {
-//        try {
-//            return obtenerDatosLeagueRepository.findAll();
-//        } catch (DataIntegrityViolationException e) {
-//            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No hay ligas registrados");
-//        }
-//    }
-
-    //delete
-    @DeleteMapping("/deleteAll")
-    public void delCalendario(){
+    //delete - ==>> NO USAR AUN QUE ESTA EN PRUEBA
+    @DeleteMapping("/eliminar")
+    public void eliminarCalendario() {
         calendarioRepository.deleteAll();
     }
+
 
 }

@@ -70,12 +70,31 @@ GET http://localhost:8080/api/futchamp/jugador/mostrar
 
 
 ########################################################################################################################
-# PRUEBA CALENDARIO
+# CALENDARIO ==>> PARA GENERAR LOS PARTIDOS ENTRE LOS EQUIPOS
 
-POST http://localhost:8080/calendario/add/Primera Catalana
+POST http://localhost:8080/api/futchamp/calendario/agregar
+Content-Type: application/json
 
-<> 2020-05-18T074955.500.json
+{
+  "league": "Primera Catalana",
+  "fecha": "2020-09-01",
+  "hora": "10:30"
+}
 
 ###
 
+POST http://localhost:8080/api/futchamp/calendario/agregar
+Content-Type: application/json
+
+{
+"league": "Primera Andaluza",
+"fecha": "2021-02-15",
+"hora": "14:45"
+}
+
+###
+
+GET http://localhost:8080/api/futchamp/calendario/mostrar
+
+###
 

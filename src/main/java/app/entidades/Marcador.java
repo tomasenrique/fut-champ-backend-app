@@ -9,8 +9,8 @@ public class Marcador implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int Glocal; //
-    private int Gvisitante; //
+    private int gLocal; //
+    private int gVisitante; //
 
     // Relacion 1:1 desde Partido
     @OneToOne(targetEntity = Partido.class, fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
@@ -21,9 +21,13 @@ public class Marcador implements Serializable {
     public Marcador() {
     }
 
-    public Marcador(int glocal, int gvisitante, Partido partido) {
-        Glocal = glocal;
-        Gvisitante = gvisitante;
+    public Marcador(Partido partido) {
+        this.partido = partido;
+    }
+
+    public Marcador(int gLocal, int gVisitante, Partido partido) {
+        this.gLocal = gLocal;
+        this.gVisitante = gVisitante;
         this.partido = partido;
     }
 
@@ -36,20 +40,20 @@ public class Marcador implements Serializable {
         this.id = id;
     }
 
-    public int getGlocal() {
-        return Glocal;
+    public int getgLocal() {
+        return gLocal;
     }
 
-    public void setGlocal(int glocal) {
-        Glocal = glocal;
+    public void setgLocal(int gLocal) {
+        this.gLocal = gLocal;
     }
 
-    public int getGvisitante() {
-        return Gvisitante;
+    public int getgVisitante() {
+        return gVisitante;
     }
 
-    public void setGvisitante(int gvisitante) {
-        Gvisitante = gvisitante;
+    public void setgVisitante(int gVisitante) {
+        this.gVisitante = gVisitante;
     }
 
     public Partido getPartido() {

@@ -13,17 +13,10 @@ public class Partido implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Size(max = 100)
-    private String referencia; // Para ubicar el partido
-
     private LocalDate fecha; // Fecha del partido
     private LocalTime hora; // Hora de inicio
 
-    @Size(max = 100)
-    private String estadio; // Nombre de estadio
-
     private int jornada; // sera el numero de la jornada en donde se encuentra el partido
-
 
     // Relacion N:1 desde Equipo
     @ManyToOne(targetEntity = Equipo.class, fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
@@ -41,7 +34,7 @@ public class Partido implements Serializable {
     private Calendario calendario;
 
 
-    // Relacion de 1:1 hacia Marcador ==>> id de partido en la tabla Marcador
+    // Relacion de 1:1 hacia Marcador ==>> id de partido en la tabla Marcador, inicializa la tabla a cero
     @OneToOne(mappedBy = "partido", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Marcador.class)
     private Marcador marcador;
 
@@ -54,14 +47,6 @@ public class Partido implements Serializable {
         this.local = local;
         this.visitante = visitante;
         this.marcador = marcador;
-    }
-
-    public Partido(@Size(max = 100) String referencia, LocalDate fecha, LocalTime hora, @Size(max = 100) String estadio, Calendario calendario) {
-        this.referencia = referencia;
-        this.fecha = fecha;
-        this.hora = hora;
-        this.estadio = estadio;
-        this.calendario = calendario;
     }
 
     // Setter y Getter
@@ -88,22 +73,6 @@ public class Partido implements Serializable {
 
     public void setHora(LocalTime hora) {
         this.hora = hora;
-    }
-
-    public String getEstadio() {
-        return estadio;
-    }
-
-    public void setEstadio(String estadio) {
-        this.estadio = estadio;
-    }
-
-    public String getReferencia() {
-        return referencia;
-    }
-
-    public void setReferencia(String referencia) {
-        this.referencia = referencia;
     }
 
     public int getJornada() {
@@ -136,5 +105,13 @@ public class Partido implements Serializable {
 
     public void setMarcador(Marcador marcador) {
         this.marcador = marcador;
+    }
+
+    public Calendario getCalendario() {
+        return calendario;
+    }
+
+    public void setCalendario(Calendario calendario) {
+        this.calendario = calendario;
     }
 }
