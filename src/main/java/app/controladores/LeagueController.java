@@ -39,10 +39,22 @@ public class LeagueController {
 
     // Muestra una liga buscada por su nombre
     @GetMapping("/mostrar/nombre/{nombreLeague}")
-    public League mostrarLeague(@PathVariable String nombreLeague) {
+    public League mostrarLeagueNombre(@PathVariable String nombreLeague) {
         League buscandoLeague = leagueRepository.findLigaByName(nombreLeague);
         if (buscandoLeague != null) {
             return buscandoLeague;
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No existe la league buscada.");
+        }
+    }
+
+    // Muestra una liga buscada por su id
+    @GetMapping("/mostrar/id/{idLeague}")
+    public League mostrarLeagueId(@PathVariable Long idLeague) {
+
+        Optional<League> buscandoLeague = leagueRepository.findById(idLeague);
+        if (buscandoLeague.isPresent()) {
+            return buscandoLeague.get();
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No existe la league buscada.");
         }
@@ -57,8 +69,7 @@ public class LeagueController {
         if (leagueBuscada.isPresent()) {
             League leagueActualizar = leagueBuscada.get();
             leagueActualizar.setName(league.getName()); // Actualiza el nombre
-            leagueActualizar.setLogo(league.getLogo());
-            // TODO id calendario
+            leagueActualizar.setLogo(league.getLogo()); // Actualiza el logo si es necesario.
             leagueRepository.save(leagueActualizar);
             return leagueActualizar;
         } else {
@@ -66,7 +77,7 @@ public class LeagueController {
         }
     }
 
-    // Verificar este metodo, elimina toda la red
+    // Verificar este metodo, elimina toda la red, NO USAR, AUN EN PRUEBAS
     @DeleteMapping("/eliminar/{idleague}")
     public ResponseEntity<?> eliminarLiga(@PathVariable Long idleague) {
         Optional<League> buscarLeagueEliminar = leagueRepository.findById(idleague);

@@ -48,4 +48,20 @@ public class JugadorController {
         }
     }
 
+
+    //
+    @GetMapping("/mostrar/")
+    public void mostrarJugadoresEquipo() {
+
+
+
+
+//        try {
+//            return jugadorRepository.findAll(); // devuelve la lista de usuarios
+//        } catch (DataIntegrityViolationException e) {
+//            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No hay jugadores registrados");
+//        }
+    }
+
+
 }

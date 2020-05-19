@@ -74,7 +74,6 @@ public class Calendario implements Serializable {
     // Metodos
 
     //  Metodo que se encarga de generar los partidos entre equipos
-//    public void generaCalendario(List<Equipo> equipos) {
     public void generaCalendario(List<Equipo> equipos, Calendario calendario) {
         partidos = new ArrayList<>();
         n = equipos.size();
