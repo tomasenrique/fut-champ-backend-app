@@ -56,7 +56,7 @@ public class EquipoController {
         League buscandoLeague = obtenerDatosLeagueRepository.findLigaByName(nombreLeague); // busca la league
 
         try {
-            return equipoRepository.findEquipoByLeague(buscandoLeague); // DEvuelve la lista de equipos de una misma league
+            return equipoRepository.findEquipoByLeague(buscandoLeague); // Devuelve la lista de equipos de una misma league
         } catch (DataIntegrityViolationException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No hay equipos registrados.");
         }

@@ -14,7 +14,7 @@ public interface JugadorRepository extends CrudRepository<Jugador, Long> {
 
     Jugador findJugadorByDni(String dni); // Devuelve un jugador buscado por su dni
 
-    Jugador findJugadorByEmail(String email);
+    Jugador findJugadorByEmail(String email); // Devuelve un jugador buscado por su email
 
     List<Jugador> findJugadorByEquipo(Equipo equipo); // Devuelve una lista de jugadores de un mismo equipo
 

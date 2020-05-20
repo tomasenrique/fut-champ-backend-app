@@ -23,6 +23,25 @@ GET http://localhost:8080/api/futchamp/league/mostrar/nombre/Primera Catalana
 
 ###
 
+GET http://localhost:8080/api/futchamp/league/mostrar/id/6
+
+###
+
+PUT http://localhost:8080/api/futchamp/league/actualizar
+Content-Type: application/json
+
+{
+  "id": 8,
+  "name": "cambiado",
+  "logo": "https://resfu.thumbr.io/media/img/league_logos/fcf.png?size=120x&5"
+}
+
+###
+
+DELETE http://localhost:8080/api/futchamp/league/eliminar/2
+
+###
+
 ########################################################################################################################
 
 # EQUIPO
@@ -40,6 +59,33 @@ Content-Type: application/json
 ###
 
 GET http://localhost:8080/api/futchamp/equipo/mostrar
+
+###
+
+GET http://localhost:8080/api/futchamp/equipo/mostrar/leagues/Primera Catalana
+
+###
+
+GET http://localhost:8080/api/futchamp/equipo/mostrar/nombre/Valencia Club de Futbol
+
+###
+
+GET http://localhost:8080/api/futchamp/equipo/mostrar/id/5
+
+###
+
+PUT http://localhost:8080/api/futchamp/equipo/actualizar
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "los perros",
+  "logo": "http://t3.gstatic.com/images?q=tbn:ANd9GcTdlZboGqqXYQquR6s1qeDckeEdPetLAHMKbDaMpE0Pyn009AoV"
+}
+
+###
+
+DELETE http://localhost:8080/api/futchamp/equipo/eliminar/1
 
 ###
 
@@ -65,6 +111,10 @@ Content-Type: application/json
 ###
 
 GET http://localhost:8080/api/futchamp/jugador/mostrar
+
+###
+
+GET http://localhost:8080/api/futchamp/jugador/mostrar/dni
 
 ###
 
@@ -94,7 +144,20 @@ Content-Type: application/json
 
 ###
 
+POST http://localhost:8080/api/futchamp/calendario/agregar
+Content-Type: application/json
+
+{
+  "league": "Preferente Valencia",
+  "fecha": "2019-12-24",
+  "hora": "08:15"
+}
+
+##########################################################
+
 GET http://localhost:8080/api/futchamp/calendario/mostrar
 
 ###
+
+
 
