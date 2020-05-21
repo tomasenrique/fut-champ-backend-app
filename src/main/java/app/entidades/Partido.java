@@ -57,7 +57,6 @@ public class Partido implements Serializable {
         this.id = id;
     }
 
-
     public LocalDate getFecha() {
         return fecha;
     }

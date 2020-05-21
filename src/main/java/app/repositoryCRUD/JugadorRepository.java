@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface JugadorRepository extends CrudRepository<Jugador, Long> {
 
-    Jugador findJugadorByNombreAndApellidos(String nombre, String apellido); // Devuleve un jugador buscado por su nombre y apellido
+    Jugador findJugadorByNombreAndApellidos(String nombres, String apellidos); // Devuleve un jugador buscado por su nombre y apellido
 
     Jugador findJugadorByDni(String dni); // Devuelve un jugador buscado por su dni
 

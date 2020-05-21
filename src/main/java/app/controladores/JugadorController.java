@@ -105,7 +105,7 @@ public class JugadorController {
     }
 
     // Muestra un jugador buscado por su nombre y apellido
-    // http://localhost:8080/api/futchamp/jugador/mostrar/nombreApellidos?nombre=James&apellido=Rodríguez
+    // http://localhost:8080/api/futchamp/jugador/mostrar/nombreApellidos?nombre=James&apellidos=Rodríguez
     @GetMapping("/mostrar/nombreApellidos")
     public Jugador mostrarJugadorNombreApellido(@RequestParam String nombre, @RequestParam String apellidos) {
         Jugador buscandoJugador = jugadorRepository.findJugadorByNombreAndApellidos(nombre, apellidos);
