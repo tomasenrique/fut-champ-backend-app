@@ -130,8 +130,6 @@ GET http://localhost:8080/api/futchamp/jugador/mostrar/id/5
 
 GET http://localhost:8080/api/futchamp/jugador/mostrar/nombreApellidos?nombre=James&apellidos=Rodríguez
 
-<> 2020-05-21T103700.200.json
-
 ###
 
 PUT http://localhost:8080/api/futchamp/jugador/actualizar
@@ -251,3 +249,22 @@ GET http://localhost:8080/api/futchamp/partido/mostrar/id/5
 
 ###
 
+PUT http://localhost:8080/api/futchamp/partido/actualizar
+Content-Type: application/json
+
+{
+  "id": 25,
+  "fecha": "2025-12-31",
+  "hora": "09:00",
+  "jornada": 20
+}
+
+###
+
+DELETE http://localhost:8080/api/futchamp/partido/eliminar/id/25
+
+###
+
+DELETE http://localhost:8080/api/futchamp/partido/eliminar
+
+###

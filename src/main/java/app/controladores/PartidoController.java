@@ -73,7 +73,7 @@ public class PartidoController {
     }
 
     // Muestra una lista de partidos por jornada
-    @GetMapping("mostrar/jornada/{jornada}")
+    @GetMapping("/mostrar/jornada/{jornada}")
     public Iterable<Partido> mostrarPartidosJornada(@PathVariable int jornada) {
         try {
             return partidoRepository.findPartidoByJornada(jornada);
@@ -84,7 +84,7 @@ public class PartidoController {
 
     // Muestra una lista de partidos que fueron creados por un calendario(league) que son buscados por el nombre de esta y su fecha de inicio
     // http://localhost:8080/api/futchamp/partido/mostrar/calendario?nombreLeagueCalendario=Primera Catalana&fechaInicio=2020-09-01
-    @GetMapping("mostrar/calendario")
+    @GetMapping("/mostrar/calendario")
     public Iterable<Partido> mostrarPartidosCalendario(@RequestParam String nombreLeagueCalendario, @RequestParam String fechaInicio) {
         // Busca el calendario para despues obtener su id
         Calendario buscandoCalendarioLeague =  obtenerDatosCalendarioRepository.findCalendarioByLeagueAndFecha(nombreLeagueCalendario, LocalDate.parse(fechaInicio));
@@ -97,7 +97,7 @@ public class PartidoController {
     }
 
     // Muestra una lista de partidos locales de un equipo
-    @GetMapping("mostrar/locales/{nombreEquipoLocal}")
+    @GetMapping("/mostrar/locales/{nombreEquipoLocal}")
     public Iterable<Partido> mostrarPartidosLocales(@PathVariable String nombreEquipoLocal) {
         Equipo buscandoEquipoLocal = obtenerDatosEquipoRepository.findEquipoByName(nombreEquipoLocal);
 
@@ -109,7 +109,7 @@ public class PartidoController {
     }
 
     // Muestra una lista de partidos visitantes de un equipo
-    @GetMapping("mostrar/visitantes/{nombreEquipoVisitante}")
+    @GetMapping("/mostrar/visitantes/{nombreEquipoVisitante}")
     public Iterable<Partido> mostrarPartidosVisitantes(@PathVariable String nombreEquipoVisitante) {
         Equipo buscandoEquipoVisitante = obtenerDatosEquipoRepository.findEquipoByName(nombreEquipoVisitante);
 
@@ -121,7 +121,7 @@ public class PartidoController {
     }
 
     // Muestra un partido buscado por su id
-    @GetMapping("mostrar/id/{idPartido}")
+    @GetMapping("/mostrar/id/{idPartido}")
     public Partido mostrarPartidoId(@PathVariable Long idPartido) {
         Optional<Partido> buscandoPartidoId = partidoRepository.findById(idPartido);
 
@@ -133,6 +133,52 @@ public class PartidoController {
     }
 
     // =================================================================================================================
+
+    // Actualiza la fecha, hora y jornada de un partido de una league
+    @PutMapping("/actualizar")
+    public Partido actualizarPartido(@RequestBody Partido partido){
+        Optional<Partido> buscandoPartidoActualizar = partidoRepository.findById(partido.getId());
+
+        if (buscandoPartidoActualizar.isPresent()) {
+            Partido actualizandoPartido = buscandoPartidoActualizar.get();
+            actualizandoPartido.setFecha(partido.getFecha());
+            actualizandoPartido.setHora(partido.getHora());
+            actualizandoPartido.setJornada(partido.getJornada());
+            return partidoRepository.save(actualizandoPartido);
+        }else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No se pudo actualizar el partido.");
+        }
+    }
+
+    // =================================================================================================================
+
+    // Elimina un partido buscado por su id
+    @DeleteMapping("/eliminar/id/{idPartido}")
+    public ResponseEntity<?> eliminarPartido(@PathVariable Long idPartido){
+        Optional<Partido> buscandoPartidoEliminar = partidoRepository.findById(idPartido);
+
+        if (buscandoPartidoEliminar.isPresent()) {
+            Partido eliminandoPartido = buscandoPartidoEliminar.get();
+            partidoRepository.deleteById(eliminandoPartido.getId());
+            return ResponseEntity.status(HttpStatus.OK).body(eliminandoPartido);
+        }else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No se puedo eliminar el partido.");
+        }
+    }
+
+    // Elimina todo los partidos que hay en la BBDD
+    @DeleteMapping("/eliminar")
+    public ResponseEntity<?> eliminarPartidos(){
+        try {
+            partidoRepository.deleteAll();
+            throw new ResponseStatusException(HttpStatus.OK, "Lista de partidos eliminada.");
+        } catch (DataIntegrityViolationException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No hay partidos que eliminar.");
+        }
+    }
+
+
+
 
 
 }
