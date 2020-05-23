@@ -2,6 +2,50 @@
 ### OJO ==>> SEGUIR EL ORDEN PARA POBRAR LA APLICACION
 
 ########################################################################################################################
+# COORDINADOR
+
+POST http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/coordinador/agregar
+Content-Type: application/json
+
+{
+  "usuario": "tomas",
+  "clave": "43588075q"
+}
+
+###
+
+GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/coordinador/mostrar
+
+###
+
+GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/coordinador/verificarAutorizacion?usuario=carlos&clave=123456789
+
+###
+
+GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/coordinador/obtenerIdentificador?usuario=carlos&clave=123456789
+
+###
+
+PUT http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/coordinador/actualizar/clave
+Content-Type: application/json
+
+{
+  "id": 1,
+  "clave": "261299"
+}
+
+###
+
+DELETE http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/coordinador/eliminar/id/2
+
+###
+
+DELETE http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/coordinador/eliminar
+
+###
+
+
+########################################################################################################################
 # LIGA
 
 POST http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/league/agregar
@@ -230,6 +274,88 @@ GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/partido/mos
 
 ###
 
+GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/partido/mostrar/jornada/4
+
+###
+
+GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/partido/mostrar/calendario?nombreLeagueCalendario=Primera Catalana&fechaInicio=2020-09-01
+
+###
+
+GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/partido/mostrar/locales/Futbol Club Barcelona
+
+###
+
+GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/partido/mostrar/visitantes/Real Betis Balompie
+
+###
+
+GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/partido/mostrar/id/5
+
+###
+
+PUT http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/partido/actualizar
+Content-Type: application/json
+
+{
+  "id": 25,
+  "fecha": "2025-12-31",
+  "hora": "09:00",
+  "jornada": 20
+}
+
+###
+
+DELETE http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/partido/eliminar/id/25
+
+###
+
+DELETE http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/partido/eliminar
+
+###
+
+########################################################################################################################
+# MARCADOR DE PARTIDO
+
+POST http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/marcador/agregar
+Content-Type: application/json
+
+{
+  "gLocal": 4,
+  "gVisitante": 4,
+  "partido": {
+    "id": 4
+  }
+}
+
+###
+
+GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/marcador/mostrar
+
+###
+
+GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/marcador/mostrar/marcador/2
+
+###
+
+PUT http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/marcador/actualizar
+Content-Type: application/json
+
+{
+  "id": 2,
+  "gLocal": 3,
+  "gVisitante": 3
+}
+
+###
+
+DELETE http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/marcador/eliminar/id/1
+
+###
+
+DELETE http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/marcador/eliminar
+
+###
 
 
 

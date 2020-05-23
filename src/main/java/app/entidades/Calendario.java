@@ -23,7 +23,6 @@ public class Calendario implements Serializable {
 
     private LocalTime hora; // Sera la hora de inicio del primer partido en el calendario.
 
-
     // Relacion 1:N hacia partido , por medio de esto se carga los datos en la tabla Partido
     @OneToMany(mappedBy = "calendario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Partido.class)
     private List<Partido> partidos;
@@ -32,7 +31,6 @@ public class Calendario implements Serializable {
     private static Partido[][] ida, vuelta;
     private static int[][] matriz1, matriz2;
     private static int n; // n es el numero de equipos que hay, si el numero de equipos no es par no se crea
-
 
     // Contructor
     public Calendario() {
@@ -124,15 +122,15 @@ public class Calendario implements Serializable {
                     if (j == 0) {
                         // En la matriz de ida se añade los partidos
                         if (i % 2 == 0) { // Si los equipos son pares se agrega los nombres de estos a la tabla Partido y se inicializa el marcador a cero
-                            ida[i][j] = new Partido(equipos.get(matriz2[i][j]), equipos.get(matriz1[i][j]), new Marcador()); // ==>> VER COMO AGREGAR EL ID DE PARTIDO AL MARCADOR
-                            vuelta[i][j] = new Partido(equipos.get(matriz1[i][j]), equipos.get(matriz2[i][j]), new Marcador());
+                            ida[i][j] = new Partido(equipos.get(matriz2[i][j]), equipos.get(matriz1[i][j])); // ==>> VER COMO AGREGAR EL ID DE PARTIDO AL MARCADOR
+                            vuelta[i][j] = new Partido(equipos.get(matriz1[i][j]), equipos.get(matriz2[i][j]));
                         } else {
-                            ida[i][j] = new Partido(equipos.get(matriz1[i][j]), equipos.get(matriz2[i][j]), new Marcador());
-                            vuelta[i][j] = new Partido(equipos.get(matriz2[i][j]), equipos.get(matriz1[i][j]), new Marcador());
+                            ida[i][j] = new Partido(equipos.get(matriz1[i][j]), equipos.get(matriz2[i][j]));
+                            vuelta[i][j] = new Partido(equipos.get(matriz2[i][j]), equipos.get(matriz1[i][j]));
                         }
                     } else {
-                        ida[i][j] = new Partido(equipos.get(matriz1[i][j]), equipos.get(matriz2[i][j]), new Marcador());
-                        vuelta[i][j] = new Partido(equipos.get(matriz2[i][j]), equipos.get(matriz1[i][j]), new Marcador());
+                        ida[i][j] = new Partido(equipos.get(matriz1[i][j]), equipos.get(matriz2[i][j]));
+                        vuelta[i][j] = new Partido(equipos.get(matriz2[i][j]), equipos.get(matriz1[i][j]));
                     }
                 }
             }

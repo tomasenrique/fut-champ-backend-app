@@ -21,8 +21,12 @@ public class LeagueController {
 
     @PostMapping("/agregar")
     public ResponseEntity<League> agregarLeague(@RequestBody League league) {
-        League addLeague = leagueRepository.save(league);
-        return ResponseEntity.status(HttpStatus.CREATED).body(addLeague);
+        if (league != null) {
+            leagueRepository.save(league);
+            return ResponseEntity.status(HttpStatus.CREATED).body(league);
+        } else {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No se puedo agregar la league..");
+        }
     }
 
     // =================================================================================================================
