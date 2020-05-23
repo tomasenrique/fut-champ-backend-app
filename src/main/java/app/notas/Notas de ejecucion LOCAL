@@ -2,6 +2,43 @@
 ### OJO ==>> SEGUIR EL ORDEN PARA POBRAR LA APLICACION
 
 ########################################################################################################################
+
+POST http://localhost:8080/api/futchamp/coordinador/agregar
+Content-Type: application/json
+
+{
+  "usuario": "carlos",
+  "clave": "123456789"
+}
+
+###
+
+GET http://localhost:8080/api/futchamp/coordinador/mostrar
+
+###
+
+GET http://localhost:8080/api/futchamp/coordinador/verificarAutorizacion?usuario=carlos&clave=123456789
+
+###
+
+PUT http://localhost:8080/api/futchamp/coordinador/actualizar/clave
+Content-Type: application/json
+
+{
+  "id": 1,
+  "clave": "261299"
+}
+
+###
+
+DELETE http://localhost:8080/api/futchamp/coordinador/eliminar/id/2
+
+###
+
+DELETE http://localhost:8080/api/futchamp/coordinador/eliminar
+
+###
+########################################################################################################################
 # LIGA
 
 POST http://localhost:8080/api/futchamp/league/agregar
