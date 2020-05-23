@@ -14,7 +14,8 @@ public class Equipo implements Serializable {
     private Long id;
 
     @Size(max = 100)
-    private String name;  // nombre de equipo
+    @Column(unique = true)
+    private String name;  // Nombre de equipo, dato de tipo unico
 
     private String logo; // url de la imagen de logo del equipo
 

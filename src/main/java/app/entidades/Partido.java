@@ -1,7 +1,6 @@
 package app.entidades;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -57,7 +56,6 @@ public class Partido implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-
 
     public LocalDate getFecha() {
         return fecha;

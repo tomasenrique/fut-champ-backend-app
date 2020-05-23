@@ -13,7 +13,8 @@ public class League implements Serializable {
     private Long id;
 
     @Size(max = 150)
-    private String name; // nombre de la liga
+    @Column(unique = true)
+    private String name; // Nombre de la liga, dato tipo unico
 
     private String logo; // Imagen url de la liga.
     

@@ -43,17 +43,6 @@ public class Jugador implements Serializable {
     public Jugador() {
     }
 
-    // Constructor sin imagen
-    public Jugador(@Size(max = 100) String nombre, @Size(max = 100) String apellidos, @Size(max = 20) String dni, @Size(max = 40) String email, String posicion, @Size(max = 10) String dorsal, Equipo equipo) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.dni = dni;
-        this.email = email;
-        this.posicion = posicion;
-        this.dorsal = dorsal;
-        this.equipo = equipo;
-    }
-
     // Constructor con imagen
     public Jugador(@Size(max = 100) String nombre, @Size(max = 100) String apellidos, @Size(max = 20) String dni, @Size(max = 40) String email, String imagen, String posicion, @Size(max = 10) String dorsal, Equipo equipo) {
         this.nombre = nombre;
