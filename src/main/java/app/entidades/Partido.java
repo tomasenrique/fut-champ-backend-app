@@ -34,7 +34,7 @@ public class Partido implements Serializable {
 
 
     // Relacion de 1:1 hacia Marcador ==>> id de partido en la tabla Marcador, inicializa la tabla a cero
-    @OneToOne(mappedBy = "partido", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Marcador.class)
+    @OneToOne(mappedBy = "partido", cascade = CascadeType.DETACH, fetch = FetchType.LAZY, targetEntity = Marcador.class)
     private Marcador marcador;
 
 
@@ -42,10 +42,9 @@ public class Partido implements Serializable {
     public Partido() {
     }
 
-    public Partido(Equipo local, Equipo visitante, Marcador marcador) {
+    public Partido(Equipo local, Equipo visitante) {
         this.local = local;
         this.visitante = visitante;
-        this.marcador = marcador;
     }
 
     // Setter y Getter
@@ -97,14 +96,6 @@ public class Partido implements Serializable {
         this.visitante = visitante;
     }
 
-    public Marcador getMarcador() {
-        return marcador;
-    }
-
-    public void setMarcador(Marcador marcador) {
-        this.marcador = marcador;
-    }
-
     public Calendario getCalendario() {
         return calendario;
     }
@@ -112,4 +103,5 @@ public class Partido implements Serializable {
     public void setCalendario(Calendario calendario) {
         this.calendario = calendario;
     }
+
 }

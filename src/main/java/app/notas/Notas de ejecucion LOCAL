@@ -2,13 +2,14 @@
 ### OJO ==>> SEGUIR EL ORDEN PARA POBRAR LA APLICACION
 
 ########################################################################################################################
+# COORDINADOR
 
 POST http://localhost:8080/api/futchamp/coordinador/agregar
 Content-Type: application/json
 
 {
-  "usuario": "carlos",
-  "clave": "123456789"
+  "usuario": "tomas",
+  "clave": "43588075q"
 }
 
 ###
@@ -18,6 +19,10 @@ GET http://localhost:8080/api/futchamp/coordinador/mostrar
 ###
 
 GET http://localhost:8080/api/futchamp/coordinador/verificarAutorizacion?usuario=carlos&clave=123456789
+
+###
+
+GET http://localhost:8080/api/futchamp/coordinador/obtenerIdentificador?usuario=carlos&clave=123456789
 
 ###
 
@@ -38,6 +43,7 @@ DELETE http://localhost:8080/api/futchamp/coordinador/eliminar/id/2
 DELETE http://localhost:8080/api/futchamp/coordinador/eliminar
 
 ###
+
 ########################################################################################################################
 # LIGA
 
@@ -235,8 +241,9 @@ Content-Type: application/json
 
 GET http://localhost:8080/api/futchamp/calendario/mostrar
 
-###
+<> 2020-05-24T012517.200.json
 
+###
 
 ########################################################################################################################
 # PARTIDO
@@ -247,7 +254,7 @@ Content-Type: application/json
 {
   "fecha": "2022-01-02",
   "hora": "21:00",
-  "jornada": 11,
+  "jornada": 1,
   "local": {
     "name": "Athletic Club"
   },
@@ -305,3 +312,51 @@ DELETE http://localhost:8080/api/futchamp/partido/eliminar/id/25
 DELETE http://localhost:8080/api/futchamp/partido/eliminar
 
 ###
+
+########################################################################################################################
+# MARCADOR DE PARTIDO
+
+POST http://localhost:8080/api/futchamp/marcador/agregar
+Content-Type: application/json
+
+{
+  "gLocal": 4,
+  "gVisitante": 4,
+  "partido": {
+    "id": 4
+  }
+}
+
+###
+
+GET http://localhost:8080/api/futchamp/marcador/mostrar
+
+###
+
+GET http://localhost:8080/api/futchamp/marcador/mostrar/marcador/2
+
+###
+
+PUT http://localhost:8080/api/futchamp/marcador/actualizar
+Content-Type: application/json
+
+{
+  "id": 2,
+  "gLocal": 3,
+  "gVisitante": 3
+}
+
+###
+
+DELETE http://localhost:8080/api/futchamp/marcador/eliminar/id/1
+
+###
+
+DELETE http://localhost:8080/api/futchamp/marcador/eliminar
+
+###
+
+
+
+
+

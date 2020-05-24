@@ -2,7 +2,6 @@ package app.controladores;
 
 import app.entidades.Calendario;
 import app.entidades.Equipo;
-import app.entidades.League;
 import app.entidades.Partido;
 import app.repositoryCRUD.CalendarioRepository;
 import app.repositoryCRUD.EquipoRepository;
@@ -176,9 +175,5 @@ public class PartidoController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No hay partidos que eliminar.");
         }
     }
-
-
-
-
 
 }

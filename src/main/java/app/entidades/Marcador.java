@@ -21,10 +21,6 @@ public class Marcador implements Serializable {
     public Marcador() {
     }
 
-    public Marcador(Partido partido) {
-        this.partido = partido;
-    }
-
     public Marcador(int gLocal, int gVisitante, Partido partido) {
         this.gLocal = gLocal;
         this.gVisitante = gVisitante;
