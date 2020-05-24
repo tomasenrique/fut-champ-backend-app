@@ -1,11 +1,9 @@
 package app.repositoryCRUD;
 
 import app.entidades.Calendario;
-import app.entidades.League;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.List;
 

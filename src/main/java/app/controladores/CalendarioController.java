@@ -1,10 +1,8 @@
 package app.controladores;
 
-
 import app.entidades.Calendario;
 import app.entidades.Equipo;
 import app.entidades.League;
-import app.entidades.Partido;
 import app.repositoryCRUD.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,9 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api/futchamp/calendario")
@@ -33,12 +29,6 @@ public class CalendarioController {
 
     @Autowired
     private EquipoRepository obtenerDatosEquipoRepository;
-
-//    @Autowired
-//    private MarcadorRepository obtenerDatosMarcadorRepository;
-
-//    @Autowired
-//    private PartidoRepository obtenerDatosPartidoRepository;
 
     // Agrega un calendario y a la vez genera los partidos de una league
     @PostMapping("/agregar")
