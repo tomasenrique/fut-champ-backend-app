@@ -59,6 +59,9 @@ Content-Type: application/json
 
 GET http://localhost:8080/api/futchamp/league/mostrar
 
+<> 2020-05-24T073007.200.json
+<> 2020-05-24T071244.200.json
+
 ###
 
 GET http://localhost:8080/api/futchamp/league/mostrar/nombre/Primera Catalana
@@ -215,6 +218,8 @@ Content-Type: application/json
   "hora": "10:30"
 }
 
+<> 2020-05-26T113609.201.json
+
 ###
 
 POST http://localhost:8080/api/futchamp/calendario/agregar
@@ -237,11 +242,37 @@ Content-Type: application/json
   "hora": "08:15"
 }
 
-##########################################################
+###
 
 GET http://localhost:8080/api/futchamp/calendario/mostrar
 
-<> 2020-05-24T012517.200.json
+###
+
+GET http://localhost:8080/api/futchamp/calendario/mostrar/nombreFecha?nombreLeagueCalendario=Primera Catalana&fechaInicio=2020-09-02
+
+###
+
+GET http://localhost:8080/api/futchamp/calendario/mostrar/nombre?nombreLeagueCalendario=Primera Catalana
+
+###
+
+PUT http://localhost:8080/api/futchamp/calendario/actualizar
+Content-Type: application/json
+
+{
+  "id": 1,
+  "league": "pepito",
+  "fecha": "2020-10-01",
+  "hora": "12:00"
+}
+
+###
+
+DELETE http://localhost:8080/api/futchamp/calendario/eliminar/nombreFecha?nombreLeagueCalendario=Primera Catalana&fechaInicio=2020-09-01
+
+###
+
+DELETE http://localhost:8080/api/futchamp/calendario/eliminar
 
 ###
 
@@ -271,13 +302,14 @@ Content-Type: application/json
 
 GET http://localhost:8080/api/futchamp/partido/mostrar
 
+
 ###
 
 GET http://localhost:8080/api/futchamp/partido/mostrar/jornada/4
 
 ###
 
-GET http://localhost:8080/api/futchamp/partido/mostrar/calendario?nombreLeagueCalendario=Primera Catalana&fechaInicio=2020-09-01
+GET http://localhost:8080/api/futchamp/partido/mostrar/calendario?nombreLeagueCalendario=Primera Catalana&fechaInicio=2020-09-02
 
 ###
 
