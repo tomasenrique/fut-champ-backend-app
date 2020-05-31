@@ -21,7 +21,7 @@ public class LeagueController {
 
     @PostMapping("/agregar")
     public ResponseEntity<League> agregarLeague(@RequestBody League league) {
-        if (league != null) {
+        if (league != null && !leagueRepository.existsLeagueByName(league.getName())) {
             leagueRepository.save(league);
             return ResponseEntity.status(HttpStatus.CREATED).body(league);
         } else {
