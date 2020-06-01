@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="1838.0267596073518" y="3035.0">app.controladores.JugadorController</node>
+    <node x="2899.089259607352" y="0.0">app.entidades.Coordinador</node>
+    <node x="667.0" y="3068.0">app.controladores.CalendarioController</node>
+    <node x="2027.854166666667" y="1656.0">app.repositoryCRUD.JugadorRepository</node>
+    <node x="531.8011862041468" y="187.0">app.entidades.League</node>
+    <node x="352.97974754594793" y="2819.0">app.repositoryCRUD.LeagueRepository</node>
+    <node x="1136.239267083428" y="2808.0">app.repositoryCRUD.CalendarioRepository</node>
+    <node x="2752.839259607352" y="363.0">app.repositoryCRUD.CoordinadorRepository</node>
+    <node x="2797.589259607352" y="466.0">app.controladores.CoordinadorController</node>
+    <node x="1794.854166666667" y="1416.0">app.entidades.Partido</node>
+    <node x="3240.589259607352" y="0.0">app.StartApp</node>
+    <node x="1479.8403483851675" y="66.0">app.entidades.Tabla</node>
+    <node x="2293.9589142126147" y="2379.0">app.repositoryCRUD.MarcadorRepository</node>
+    <node x="826.2392670834281" y="2808.0">app.repositoryCRUD.EquipoRepository</node>
+    <node x="0.0" y="3112.0">app.controladores.LeagueController</node>
+    <node x="1617.972924142743" y="829.0">app.entidades.Equipo</node>
+    <node x="2019.6880808792814" y="0.0">app.entidades.Jugador</node>
+    <node x="332.0" y="3090.0">app.controladores.EquipoController</node>
+    <node x="1951.5987951649959" y="873.0">app.entidades.Marcador</node>
+    <node x="1646.4000074760766" y="2095.0">app.entidades.Calendario</node>
+    <node x="1353.2350929406853" y="3046.0">app.controladores.PartidoController</node>
+    <node x="1728.566674142743" y="2786.0">app.repositoryCRUD.PartidoRepository</node>
+    <node x="2357.839259607352" y="3090.0">app.controladores.MarcadorController</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="app.controladores.JugadorController" target="app.entidades.Jugador">
+      <point x="128.25" y="-179.5" />
+      <point x="2137.276759607352" y="3015.0" />
+      <point x="2598.458914212615" y="3015.0" />
+      <point x="2598.458914212615" y="809.0" />
+      <point x="2383.604747545948" y="809.0" />
+      <point x="165.41666666666674" y="354.5" />
+    </edge>
+    <edge source="app.controladores.MarcadorController" target="app.entidades.Partido">
+      <point x="-70.0" y="-124.5" />
+      <point x="2462.839259607352" y="2935.0" />
+      <point x="2108.691674142743" y="2935.0" />
+      <point x="2108.691674142743" y="2045.0" />
+      <point x="1972.354166666667" y="2045.0" />
+      <point x="71.0" y="299.5" />
+    </edge>
+    <edge source="app.controladores.EquipoController" target="app.entidades.Equipo">
+      <point x="39.375" y="-124.5" />
+      <point x="528.875" y="3005.0" />
+      <point x="652.3434337500948" y="3005.0" />
+      <point x="652.3434337500948" y="1346.0" />
+      <point x="1626.847924142743" y="1346.0" />
+      <point x="-97.625" y="233.5" />
+    </edge>
+    <edge source="app.controladores.MarcadorController" target="app.repositoryCRUD.MarcadorRepository">
+      <point x="0.0" y="-124.5" />
+      <point x="2532.839259607352" y="2925.0" />
+      <point x="2429.9589142126147" y="2925.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="app.entidades.Equipo" target="app.entidades.Jugador">
+      <point x="38.72727272727275" y="-233.5" />
+      <point x="1763.200196870016" y="779.0" />
+      <point x="2052.7714142126147" y="779.0" />
+      <point x="-165.41666666666669" y="354.5" />
+    </edge>
+    <edge source="app.controladores.CalendarioController" target="app.repositoryCRUD.CalendarioRepository">
+      <point x="168.33333333333326" y="-146.5" />
+      <point x="1037.3333333333333" y="3015.0" />
+      <point x="1233.239267083428" y="3015.0" />
+      <point x="-97.0" y="37.5" />
+    </edge>
+    <edge source="app.controladores.CalendarioController" target="app.repositoryCRUD.EquipoRepository">
+      <point x="33.66666666666674" y="-146.5" />
+      <point x="902.6666666666667" y="3015.0" />
+      <point x="930.4892670834281" y="3015.0" />
+      <point x="-34.75" y="37.5" />
+    </edge>
+    <edge source="app.controladores.JugadorController" target="app.entidades.Equipo">
+      <point x="-42.75" y="-179.5" />
+      <point x="1966.2767596073518" y="2955.0" />
+      <point x="1589.066674142743" y="2955.0" />
+      <point x="1589.066674142743" y="1386.0" />
+      <point x="1697.847924142743" y="1386.0" />
+      <point x="-26.625" y="233.5" />
+    </edge>
+    <edge source="app.repositoryCRUD.JugadorRepository" target="app.entidades.Equipo">
+      <point x="-90.25" y="-59.5" />
+      <point x="2118.104166666667" y="1346.0" />
+      <point x="1822.097924142743" y="1346.0" />
+      <point x="97.625" y="233.5" />
+    </edge>
+    <edge source="app.controladores.CalendarioController" target="app.entidades.League">
+      <point x="-101.0" y="-146.5" />
+      <point x="768.0" y="2985.0" />
+      <point x="626.1559337500948" y="2985.0" />
+      <point x="626.1559337500948" y="809.0" />
+      <point x="596.3567417597025" y="809.0" />
+      <point x="-18.444444444444343" y="167.5" />
+    </edge>
+    <edge source="app.repositoryCRUD.PartidoRepository" target="app.entidades.Partido">
+      <point x="106.33333333333326" y="-59.5" />
+      <point x="1994.4000074760766" y="2766.0" />
+      <point x="2054.066674142743" y="2766.0" />
+      <point x="2054.066674142743" y="2065.0" />
+      <point x="1925.0208333333335" y="2065.0" />
+      <point x="23.666666666666742" y="299.5" />
+    </edge>
+    <edge source="app.entidades.Calendario" target="app.entidades.Partido">
+      <point x="25.91666666666663" y="-310.5" />
+      <point x="1827.816674142743" y="2075.0" />
+      <point x="1854.0208333333335" y="2075.0" />
+      <point x="-47.33333333333337" y="299.5" />
+    </edge>
+    <edge source="app.entidades.Calendario" target="app.entidades.Equipo">
+      <point x="-129.58333333333337" y="-310.5" />
+      <point x="1672.316674142743" y="2045.0" />
+      <point x="1784.354166666667" y="2045.0" />
+      <point x="1784.354166666667" y="1396.0" />
+      <point x="1733.347924142743" y="1396.0" />
+      <point x="8.875" y="233.5" />
+    </edge>
+    <edge source="app.controladores.MarcadorController" target="app.repositoryCRUD.PartidoRepository">
+      <point x="-140.0" y="-124.5" />
+      <point x="2392.839259607352" y="2945.0" />
+      <point x="1967.816674142743" y="2945.0" />
+      <point x="79.75" y="59.5" />
+    </edge>
+    <edge source="app.entidades.Tabla" target="app.entidades.Equipo">
+      <point x="0.0" y="288.5" />
+      <point x="1591.3403483851675" y="739.0" />
+      <point x="1724.472924142743" y="739.0" />
+      <point x="0.0" y="-233.5" />
+    </edge>
+    <edge source="app.controladores.JugadorController" target="app.repositoryCRUD.JugadorRepository">
+      <point x="42.75" y="-179.5" />
+      <point x="2051.776759607352" y="3005.0" />
+      <point x="2208.354166666667" y="3005.0" />
+      <point x="0.0" y="59.5" />
+    </edge>
+    <edge source="app.repositoryCRUD.CalendarioRepository" target="app.entidades.Calendario">
+      <point x="0.0" y="-37.5" />
+      <point x="1330.239267083428" y="2756.0" />
+      <point x="1763.0250074760766" y="2756.0" />
+      <point x="-38.875" y="310.5" />
+    </edge>
+    <edge source="app.repositoryCRUD.MarcadorRepository" target="app.entidades.Marcador">
+      <point x="68.00000000000011" y="-26.5" />
+      <point x="2497.958914212615" y="1336.0" />
+      <point x="2072.4559380221385" y="1336.0" />
+      <point x="26.857142857142776" y="189.5" />
+    </edge>
+    <edge source="app.repositoryCRUD.EquipoRepository" target="app.entidades.Equipo">
+      <point x="69.5" y="-37.5" />
+      <point x="1034.739267083428" y="1366.0" />
+      <point x="1662.347924142743" y="1366.0" />
+      <point x="-62.125" y="233.5" />
+    </edge>
+    <edge source="app.controladores.PartidoController" target="app.repositoryCRUD.CalendarioRepository">
+      <point x="-30.333333333333258" y="-168.5" />
+      <point x="1504.9017596073518" y="2975.0" />
+      <point x="1427.239267083428" y="2975.0" />
+      <point x="97.0" y="37.5" />
+    </edge>
+    <edge source="app.controladores.CoordinadorController" target="app.repositoryCRUD.CoordinadorRepository">
+      <point x="-99.5" y="-113.5" />
+      <point x="2897.089259607352" y="441.0" />
+      <point x="2911.839259607352" y="441.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="app.controladores.CalendarioController" target="app.repositoryCRUD.LeagueRepository">
+      <point x="-168.33333333333326" y="-146.5" />
+      <point x="700.6666666666667" y="2995.0" />
+      <point x="533.8130808792814" y="2995.0" />
+      <point x="72.33333333333348" y="26.5" />
+    </edge>
+    <edge source="app.controladores.PartidoController" target="app.repositoryCRUD.PartidoRepository">
+      <point x="91.0" y="-168.5" />
+      <point x="1626.2350929406853" y="2985.0" />
+      <point x="1808.316674142743" y="2985.0" />
+      <point x="-79.75" y="59.5" />
+    </edge>
+    <edge source="app.controladores.PartidoController" target="app.entidades.Calendario">
+      <point x="30.333333333333258" y="-168.5" />
+      <point x="1565.5684262740183" y="2975.0" />
+      <point x="1702.504174142743" y="2975.0" />
+      <point x="1702.504174142743" y="2766.0" />
+      <point x="1840.7750074760766" y="2766.0" />
+      <point x="38.875" y="310.5" />
+    </edge>
+    <edge source="app.controladores.CoordinadorController" target="app.entidades.Coordinador">
+      <point x="99.5" y="-113.5" />
+      <point x="3096.089259607352" y="441.0" />
+      <point x="3081.339259607352" y="441.0" />
+      <point x="3081.339259607352" y="338.0" />
+      <point x="3045.339259607352" y="338.0" />
+      <point x="48.75" y="156.5" />
+    </edge>
+    <edge source="app.repositoryCRUD.MarcadorRepository" target="app.entidades.Partido">
+      <point x="-68.0" y="-26.5" />
+      <point x="2361.9589142126147" y="2035.0" />
+      <point x="1996.0208333333335" y="2035.0" />
+      <point x="94.66666666666674" y="299.5" />
+    </edge>
+    <edge source="app.repositoryCRUD.LeagueRepository" target="app.entidades.League">
+      <point x="0.0" y="-26.5" />
+      <point x="461.47974754594804" y="809.0" />
+      <point x="577.9122973152581" y="809.0" />
+      <point x="-36.88888888888869" y="167.5" />
+    </edge>
+    <edge source="app.repositoryCRUD.EquipoRepository" target="app.entidades.League">
+      <point x="-69.5" y="-37.5" />
+      <point x="895.7392670834281" y="2766.0" />
+      <point x="637.1559337500948" y="2766.0" />
+      <point x="637.1559337500948" y="799.0" />
+      <point x="614.8011862041468" y="799.0" />
+      <point x="0.0" y="167.5" />
+    </edge>
+    <edge source="app.entidades.Partido" target="app.entidades.Equipo">
+      <point x="-66.5625" y="-299.5" />
+      <point x="1834.791666666667" y="1376.0" />
+      <point x="1768.847924142743" y="1376.0" />
+      <point x="44.375" y="233.5" />
+    </edge>
+    <edge source="app.entidades.Equipo" target="app.entidades.League">
+      <point x="-77.4545454545455" y="-233.5" />
+      <point x="1647.0183786881976" y="779.0" />
+      <point x="651.6900750930355" y="779.0" />
+      <point x="36.88888888888869" y="167.5" />
+    </edge>
+    <edge source="app.entidades.Marcador" target="app.entidades.Partido">
+      <point x="0.0" y="189.5" />
+      <point x="2045.5987951649959" y="1396.0" />
+      <point x="1994.541666666667" y="1396.0" />
+      <point x="93.1875" y="-299.5" />
+    </edge>
+    <edge source="app.controladores.CalendarioController" target="app.entidades.Equipo">
+      <point x="-33.66666666666674" y="-146.5" />
+      <point x="835.3333333333333" y="3005.0" />
+      <point x="802.0250074760763" y="3005.0" />
+      <point x="802.0250074760763" y="1356.0" />
+      <point x="1644.597924142743" y="1356.0" />
+      <point x="-79.875" y="233.5" />
+    </edge>
+    <edge source="app.entidades.Equipo" target="app.entidades.Partido">
+      <point x="62.125" y="233.5" />
+      <point x="1786.597924142743" y="1366.0" />
+      <point x="1861.416666666667" y="1366.0" />
+      <point x="-39.9375" y="-299.5" />
+    </edge>
+    <edge source="app.entidades.Partido" target="app.entidades.Calendario">
+      <point x="-23.66666666666663" y="299.5" />
+      <point x="1877.6875000000002" y="2075.0" />
+      <point x="1879.6500074760766" y="2075.0" />
+      <point x="77.75" y="-310.5" />
+    </edge>
+    <edge source="app.repositoryCRUD.PartidoRepository" target="app.entidades.Equipo">
+      <point x="-106.33333333333326" y="-59.5" />
+      <point x="1781.73334080941" y="2736.0" />
+      <point x="1635.9000074760766" y="2736.0" />
+      <point x="1635.9000074760766" y="1396.0" />
+      <point x="1715.597924142743" y="1396.0" />
+      <point x="-8.875" y="233.5" />
+    </edge>
+    <edge source="app.repositoryCRUD.PartidoRepository" target="app.entidades.Calendario">
+      <point x="0.0" y="-59.5" />
+      <point x="1888.066674142743" y="2766.0" />
+      <point x="1918.5250074760766" y="2766.0" />
+      <point x="116.625" y="310.5" />
+    </edge>
+    <edge source="app.controladores.EquipoController" target="app.repositoryCRUD.EquipoRepository">
+      <point x="118.125" y="-124.5" />
+      <point x="607.625" y="3015.0" />
+      <point x="860.9892670834281" y="3015.0" />
+      <point x="-104.25" y="37.5" />
+    </edge>
+    <edge source="app.controladores.CalendarioController" target="app.entidades.Calendario">
+      <point x="101.0" y="-146.5" />
+      <point x="970.0" y="3005.0" />
+      <point x="1114.739267083428" y="3005.0" />
+      <point x="1114.739267083428" y="2746.0" />
+      <point x="1685.2750074760766" y="2746.0" />
+      <point x="-116.625" y="310.5" />
+    </edge>
+    <edge source="app.entidades.Partido" target="app.entidades.Marcador">
+      <point x="13.3125" y="-299.5" />
+      <point x="1914.666666666667" y="1366.0" />
+      <point x="1965.0273665935672" y="1366.0" />
+      <point x="-80.57142857142856" y="189.5" />
+    </edge>
+    <edge source="app.controladores.MarcadorController" target="app.entidades.Marcador">
+      <point x="70.0" y="-124.5" />
+      <point x="2602.839259607352" y="3005.0" />
+      <point x="2576.458914212615" y="3005.0" />
+      <point x="2576.458914212615" y="1326.0" />
+      <point x="2099.313080879281" y="1326.0" />
+      <point x="53.714285714285666" y="189.5" />
+    </edge>
+    <edge source="app.controladores.EquipoController" target="app.entidades.League">
+      <point x="-118.125" y="-124.5" />
+      <point x="371.375" y="3005.0" />
+      <point x="279.35416666666674" y="3005.0" />
+      <point x="279.35416666666674" y="799.0" />
+      <point x="559.4678528708133" y="799.0" />
+      <point x="-55.333333333333485" y="167.5" />
+    </edge>
+    <edge source="app.controladores.JugadorController" target="app.repositoryCRUD.EquipoRepository">
+      <point x="-128.25" y="-179.5" />
+      <point x="1880.7767596073518" y="2965.0" />
+      <point x="1069.489267083428" y="2965.0" />
+      <point x="104.25" y="37.5" />
+    </edge>
+    <edge source="app.controladores.LeagueController" target="app.repositoryCRUD.LeagueRepository">
+      <point x="78.0" y="-102.5" />
+      <point x="234.0" y="3015.0" />
+      <point x="389.14641421261445" y="3015.0" />
+      <point x="-72.33333333333348" y="26.5" />
+    </edge>
+    <edge source="app.repositoryCRUD.CoordinadorRepository" target="app.entidades.Coordinador">
+      <point x="0.0" y="-26.5" />
+      <point x="2911.839259607352" y="338.0" />
+      <point x="2947.839259607352" y="338.0" />
+      <point x="-48.75" y="156.5" />
+    </edge>
+    <edge source="app.entidades.Jugador" target="app.entidades.Equipo">
+      <point x="-33.08333333333337" y="354.5" />
+      <point x="2185.104747545948" y="799.0" />
+      <point x="1801.9274695972886" y="799.0" />
+      <point x="77.4545454545455" y="-233.5" />
+    </edge>
+    <edge source="app.controladores.PartidoController" target="app.repositoryCRUD.EquipoRepository">
+      <point x="-151.66666666666652" y="-168.5" />
+      <point x="1383.5684262740187" y="2995.0" />
+      <point x="999.9892670834281" y="2995.0" />
+      <point x="34.75" y="37.5" />
+    </edge>
+    <edge source="app.controladores.PartidoController" target="app.entidades.Partido">
+      <point x="151.66666666666674" y="-168.5" />
+      <point x="1686.9017596073518" y="2995.0" />
+      <point x="2091.4000074760766" y="2995.0" />
+      <point x="2091.4000074760766" y="2055.0" />
+      <point x="1948.6875000000002" y="2055.0" />
+      <point x="47.33333333333337" y="299.5" />
+    </edge>
+    <edge source="app.repositoryCRUD.JugadorRepository" target="app.entidades.Jugador">
+      <point x="90.25" y="-59.5" />
+      <point x="2298.604166666667" y="1396.0" />
+      <point x="2373.7089142126147" y="1396.0" />
+      <point x="2373.7089142126147" y="809.0" />
+      <point x="2317.438080879281" y="809.0" />
+      <point x="99.25" y="354.5" />
+    </edge>
+    <edge source="app.entidades.Equipo" target="app.entidades.Tabla">
+      <point x="-19.363636363636374" y="-233.5" />
+      <point x="1705.1092877791068" y="749.0" />
+      <point x="1517.007015051834" y="749.0" />
+      <point x="-74.33333333333337" y="288.5" />
+    </edge>
+    <edge source="app.controladores.PartidoController" target="app.entidades.Equipo">
+      <point x="-91.0" y="-168.5" />
+      <point x="1444.2350929406853" y="2985.0" />
+      <point x="1125.739267083428" y="2985.0" />
+      <point x="1125.739267083428" y="1376.0" />
+      <point x="1680.097924142743" y="1376.0" />
+      <point x="-44.375" y="233.5" />
+    </edge>
+    <edge source="app.controladores.EquipoController" target="app.repositoryCRUD.LeagueRepository">
+      <point x="-39.375" y="-124.5" />
+      <point x="450.125" y="3015.0" />
+      <point x="461.47974754594793" y="3015.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="app.entidades.League" target="app.entidades.Equipo">
+      <point x="55.333333333333485" y="167.5" />
+      <point x="670.1345195374803" y="769.0" />
+      <point x="1666.382015051834" y="769.0" />
+      <point x="-58.09090909090912" y="-233.5" />
+    </edge>
+    <edge source="app.controladores.LeagueController" target="app.entidades.League">
+      <point x="-78.0" y="-102.5" />
+      <point x="78.0" y="3015.0" />
+      <point x="127.16666666666674" y="3015.0" />
+      <point x="127.16666666666674" y="789.0" />
+      <point x="541.023408426369" y="789.0" />
+      <point x="-73.77777777777783" y="167.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.30000000000000004" x="1968.333333333333" y="1359.6666666666665" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
