@@ -9,8 +9,9 @@ Content-Type: application/json
 
 {
   "usuario": "tomas",
-  "clave": "43588075q"
+  "clave": "12345a"
 }
+
 
 ###
 
@@ -18,7 +19,7 @@ GET http://localhost:8080/api/futchamp/coordinador/mostrar
 
 ###
 
-GET http://localhost:8080/api/futchamp/coordinador/verificarAutorizacion?usuario=carlos&clave=123456789
+GET http://localhost:8080/api/futchamp/coordinador/verificarAutorizacion?usuario=tomas&clave=12345a
 
 ###
 
@@ -58,9 +59,6 @@ Content-Type: application/json
 ###
 
 GET http://localhost:8080/api/futchamp/league/mostrar
-
-<> 2020-05-24T073007.200.json
-<> 2020-05-24T071244.200.json
 
 ###
 
@@ -218,8 +216,6 @@ Content-Type: application/json
   "hora": "10:30"
 }
 
-<> 2020-05-26T113609.201.json
-
 ###
 
 POST http://localhost:8080/api/futchamp/calendario/agregar
@@ -302,7 +298,6 @@ Content-Type: application/json
 
 GET http://localhost:8080/api/futchamp/partido/mostrar
 
-
 ###
 
 GET http://localhost:8080/api/futchamp/partido/mostrar/jornada/4
@@ -361,6 +356,10 @@ Content-Type: application/json
 
 ###
 
+POST http://localhost:8080/api/futchamp/marcador/agregar/marcadoresAutomatico
+
+###
+
 GET http://localhost:8080/api/futchamp/marcador/mostrar
 
 ###
@@ -387,6 +386,10 @@ DELETE http://localhost:8080/api/futchamp/marcador/eliminar/id/1
 DELETE http://localhost:8080/api/futchamp/marcador/eliminar
 
 ###
+
+
+########################################################################################################################
+########################################################################################################################
 
 
 

@@ -11,7 +11,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 @RestController
 @RequestMapping(path = "/api/futchamp/marcador")
@@ -35,6 +37,19 @@ public class MarcadorController {
             return ResponseEntity.status(HttpStatus.CREATED).body(marcador);
         } else {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No se pudo agregar marcador al partido.");
+        }
+    }
+
+    // Inicializa los marcadores de los partidos con puntuaciones variadas
+    @PostMapping("/agregar/marcadoresAutomatico")
+    public void agregarMarcadoresPuntuacionAutomatico() {
+        Random r = new Random(); // para generar los goles
+        List<Partido> listaPartidos = (List<Partido>) obtenerDatosPartidoRepository.findAll(); // Obtiene la lista de particos
+
+        for (int i = 0; i < listaPartidos.size() ; i++) {
+            // Cantidad maxima de goles es igual a 5
+            Marcador marcador = new Marcador(r.nextInt(5), r.nextInt(5), listaPartidos.get(i));
+            marcadorRepository.save(marcador);
         }
     }
 

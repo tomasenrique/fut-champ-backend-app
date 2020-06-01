@@ -13,8 +13,6 @@ public class Tabla implements Serializable {
     private int pg; // Partidos ganados
     private int pe; // Partidos empatados
     private int pp; // Partidos perdidos
-    private int gf; // Goles a favor
-    private int ge; //
     private int pts; // Puntos
 
     // Relacion 1:1 desde Equipo
@@ -26,13 +24,11 @@ public class Tabla implements Serializable {
     public Tabla() {
     }
 
-    public Tabla(int pj, int pg, int pe, int pp, int gf, int ge, int pts, Equipo equipo) {
+    public Tabla(int pj, int pg, int pe, int pp, int pts, Equipo equipo) {
         this.pj = pj;
         this.pg = pg;
         this.pe = pe;
         this.pp = pp;
-        this.gf = gf;
-        this.ge = ge;
         this.pts = pts;
         this.equipo = equipo;
     }
@@ -75,22 +71,6 @@ public class Tabla implements Serializable {
 
     public void setPp(int pp) {
         this.pp = pp;
-    }
-
-    public int getGf() {
-        return gf;
-    }
-
-    public void setGf(int gf) {
-        this.gf = gf;
-    }
-
-    public int getGe() {
-        return ge;
-    }
-
-    public void setGe(int ge) {
-        this.ge = ge;
     }
 
     public int getPts() {
