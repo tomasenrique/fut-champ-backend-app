@@ -78,7 +78,7 @@ public class CoordinadorController {
 
     // Para actualizar las contraseñas de un coordinador
     @PutMapping("/actualizar/clave")
-    public Coordinador actualizarCoordinadorClave(@RequestBody Coordinador coordinador){
+    public ResponseEntity<?> actualizarCoordinadorClave(@RequestBody Coordinador coordinador){
         Optional<Coordinador> buscandoCoordinadorActualizar = coordinadorRepository.findById(coordinador.getId());
 
         if (buscandoCoordinadorActualizar.isPresent()) {

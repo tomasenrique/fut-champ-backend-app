@@ -1,4 +1,7 @@
 
+
+
+
 ### OJO ==>> SEGUIR EL ORDEN PARA POBRAR LA APLICACION
 
 ########################################################################################################################
@@ -9,8 +12,9 @@ Content-Type: application/json
 
 {
   "usuario": "tomas",
-  "clave": "43588075q"
+  "clave": "12345a"
 }
+
 
 ###
 
@@ -18,7 +22,7 @@ GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/coordinador
 
 ###
 
-GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/coordinador/verificarAutorizacion?usuario=carlos&clave=123456789
+GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/coordinador/verificarAutorizacion?usuario=tomas&clave=12345a
 
 ###
 
@@ -44,7 +48,6 @@ DELETE http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/coordina
 
 ###
 
-
 ########################################################################################################################
 # LIGA
 
@@ -52,8 +55,8 @@ POST http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/league/agr
 Content-Type: application/json
 
 {
-  "name": "Liga de PRUEBA REMOTA",
-  "logo": "https://cyliconvalley.es/assets/2015/05/Software-testing-trend.jpg"
+  "name": "Primera Catalana",
+  "logo": "https://resfu.thumbr.io/media/img/league_logos/fcf.png?size=120x&5"
 }
 
 ###
@@ -154,7 +157,6 @@ Content-Type: application/json
 
 GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/jugador/mostrar
 
-
 ###
 
 GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/jugador/mostrar/equipo/Futbol Club Barcelona
@@ -173,7 +175,7 @@ GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/jugador/mos
 
 ###
 
-GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/jugador/mostrar/nombreApellidos?nombre=James&apellido=Rodríguez
+GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/jugador/mostrar/nombreApellidos?nombre=James&apellidos=Rodríguez
 
 ###
 
@@ -239,12 +241,39 @@ Content-Type: application/json
   "hora": "08:15"
 }
 
-##########################################################
+###
 
 GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/calendario/mostrar
 
 ###
 
+GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/calendario/mostrar/nombreFecha?nombreLeagueCalendario=Primera Catalana&fechaInicio=2020-09-02
+
+###
+
+GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/calendario/mostrar/nombre?nombreLeagueCalendario=Primera Catalana
+
+###
+
+PUT http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/calendario/actualizar
+Content-Type: application/json
+
+{
+  "id": 1,
+  "league": "pepito",
+  "fecha": "2020-10-01",
+  "hora": "12:00"
+}
+
+###
+
+DELETE http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/calendario/eliminar/nombreFecha?nombreLeagueCalendario=Primera Catalana&fechaInicio=2020-09-01
+
+###
+
+DELETE http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/calendario/eliminar
+
+###
 
 ########################################################################################################################
 # PARTIDO
@@ -255,7 +284,7 @@ Content-Type: application/json
 {
   "fecha": "2022-01-02",
   "hora": "21:00",
-  "jornada": 11,
+  "jornada": 1,
   "local": {
     "name": "Athletic Club"
   },
@@ -278,7 +307,7 @@ GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/partido/mos
 
 ###
 
-GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/partido/mostrar/calendario?nombreLeagueCalendario=Primera Catalana&fechaInicio=2020-09-01
+GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/partido/mostrar/calendario?nombreLeagueCalendario=Primera Catalana&fechaInicio=2020-09-02
 
 ###
 
@@ -330,6 +359,10 @@ Content-Type: application/json
 
 ###
 
+POST http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/marcador/agregar/marcadoresAutomatico
+
+###
+
 GET http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/marcador/mostrar
 
 ###
@@ -358,7 +391,8 @@ DELETE http://ec2-3-91-54-159.compute-1.amazonaws.com:8080/api/futchamp/marcador
 ###
 
 
-
+########################################################################################################################
+########################################################################################################################
 
 
 
